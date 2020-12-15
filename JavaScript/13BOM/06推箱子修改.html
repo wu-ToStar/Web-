@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box");
+            document.onkeydown=function(event){
+                event=event || window.event;
+
+                if(event.ctrlKey){
+                    speed=100;
+                }else{
+                    speed=50;
+                }
+                dj=event.keyCode;
+            };
+            document.onkeyup=function(){
+                dj=0;
+            }
+
+            var speed=50;
+                //w=87 a=65 d=68 s=83
+                var dj=0;
+
+            setInterval(function(){
+                switch(dj){
+                    case 37://左
+                        box.style.left =box.offsetLeft-speed+"px";
+                        break;
+                    case 39://右
+                        box.style.left =box.offsetLeft+speed+"px";
+                        break;
+                    case 38://上
+                        box.style.top =box.offsetTop-speed+"px";
+                        break;
+                    case 40://下
+                        box.style.top =box.offsetTop+speed+"px";
+                        break;
+
+
+                    case 65://左
+                        box.style.left =box.offsetLeft-speed+"px";
+                        break;
+                    case 68://右
+                        box.style.left =box.offsetLeft+speed+"px";
+                        break;
+                    case 87://上
+                        box.style.top =box.offsetTop-speed+"px";
+                        break;
+                    case 83://下
+                        box.style.top =box.offsetTop+speed+"px";
+                        break;
+                }
+            },60);
+        }
+    </script>
+</head>
+<body>
+    <div id="box" style="width: 100px; height: 100px; background-color: red;position: absolute;"></div>
+</body>
+</html>

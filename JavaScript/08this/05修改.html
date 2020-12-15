@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            创建一个Person构造函数
+                -在Person构造函数中，为每一个对象都添加了一个sayName方法
+        */ 
+        function Person(name,age,gender){
+            this.name=name;
+            this.age=age;
+            this.gender=gender;
+            this.sayName=fun;
+        }
+     
+        //将sayName方法在全局作用域定义
+        //在全局作用域中很不安全，也会污染全局作用域的命名空间
+        function fun(){
+            alert("hello，我是"+this.name);
+            document.write(this.name);
+        }
+        var per1=new Person("孙悟空",18,"男");
+        var per1=new Person("猪八戒",18,"男");
+        per1.sayName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function MyClass(){
+
+        }
+        MyClass.prototype.name="";
+        var mc =new MyClass();
+        // mc.age=18;
+        /*
+            原型对象也是对象，所有它也有原型
+                当我们使用一个对象的属性或方法时，会在自身中寻找
+                    有则使用
+                    没有则去原型对象中寻找，如果有则使用
+                    没有则去原型的原型中去寻找,直到找到Object对象的原型
+                    object对象的原型没有原型，没有找到就返回undefined
+
+        */ 
+        console.log(mc.age);
+        console.log(mc.hasOwnProperty("age"));
+        console.log(mc.__proto__.hasOwnProperty("hasOwnProperty"));
+        console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

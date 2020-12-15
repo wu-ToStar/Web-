@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #areaDiv{
+            width: 300px;
+            height:200px;
+            border: 1px solid;
+            margin-bottom: 20px;
+        }
+        #showMsg{
+            width: 300px;
+            height:100px;
+            border: 1px solid;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var areaDiv=document.getElementById("areaDiv");
+            var showMsg=document.getElementById("showMsg");
+            /*
+                onmousemove
+                    -该事件会在鼠标移动时触发
+
+                事件对象
+                    -当事件的响应函数被触发了，浏览器每次都会将一个事件作为参数传递进响应函数
+                        在事件对象中封装了当前事件修改的一切信息，比如，鼠标和键盘触发的事件
+            */ 
+            var string1= 'jspang.com';
+            areaDiv.onmousemove=function(event){
+                /*
+                    在IE8中，响应函数被触发时，浏览器不会传递事件
+                        是将事件作为window对象的属性保存的
+                */ 
+                // if(!event){
+                //     event=window.event;
+                // }
+                /*
+                    clientX可以获取鼠标指针的水平位置
+                    cilentY可以获取鼠标指针的垂直位置
+                */ 
+               //解决事件对象的兼容性问题
+                event=event || window.event;
+
+                var x=event.clientX;
+                var y=event.clientY;
+                showMsg.innerHTML="x="+x+", y="+y
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="areaDiv">
+
+    </div>
+    <div id="showMsg">
+
+    </div>
+</body>
+</html>

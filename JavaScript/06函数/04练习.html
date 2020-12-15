@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function isOu(num){
+            // if(num % 2 ==0){
+            //     return true;
+            // }else{
+            //     return false;
+            // }
+
+            return num % 2 == 0;
+        }
+
+        var result = isOu(15);
+
+        console.log(result)
+
+        function mianji(r){
+            return 3.14*r*r;
+        }
+        var result = mianji(10);
+
+        console.log(result);
+        /*
+            创建一个函数，可以在控制台输入一个人的信息
+            可以输入形参
+
+            实参可以是任意的数据类型，也可以是对象
+                当值过多时，可以将参数封装到一个对象中
+        */ 
+        function sayhello(o){
+            console.log("我是"+o.name+"，我今年"+o.age+"岁，"+"我是一个"+o.gender+"人，住在"+o.address);
+        }
+        //sayhello("猪八戒","16","男","高老庄");
+
+        var obj ={
+            name:"孙悟空",
+            age:18,
+            gender:"男",
+            address:"花果山"
+        }
+        sayhello(obj);
+
+
+        function fun1(a){
+            console.log(a);
+            // a(obj);
+        }
+        fun1(sayhello);
+
+        fun1(function(){alert("hi")});
+
+        /*
+            mainji()
+                -调用函数
+                -相当于使用函数的返回值
+            mianji
+                -函数对象
+                -相当于直接使用函数对象
+        */ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj={
+            name:"孙悟空",
+            age:18
+        }
+        /*
+            枚举对象的属性
+            使用for...in语句
+                语法：
+                    for(var 变量in 对象){
+
+                    }
+                for..in 语句 对象有几个属性，循环体就会执行几次
+        */ 
+        for(var n in obj){
+            //console.log("属性名："+n);
+            console.log("属性值："+obj[n]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

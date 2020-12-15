@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //w_13387070973@163.com
+        //任意字母数字 。任意怎么设置 @ 任意字母数字 .任意字母（2-5位） .任意字母（2-5位）
+        var emailReg=/^\w{3,}(\.\w+)*@[a-z0-9]+(\.[a-z]{2,5}){1,2}$/;
+
+        var email="w_13387070973@163.com";
+
+        console.log(emailReg.test(email));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: #bfa;
+            padding: 50px;
+        }
+        #box2{
+            width:200px;
+            height:200px;
+            border: 50px solid red;
+            background-color: olive;
+            margin: 10px;
+        }
+        #box3{
+            width:350px;
+            height:350px;
+            background-color: blue;
+            border: 10px solid yellow;
+            margin: 30px;
+            position: relative;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            var box2=document.getElementById("box2");
+            var box3=document.getElementById("box3");
+            box1.onclick=function(){
+                
+                /*
+                    clientWidth
+                    clientHeight
+                        -这两个属性可以获取元素的可见高度和宽度
+                        -这些属性读是不带px,返回都是一个数字，可以直接进行计算
+                        -获取元素宽度和高度，包括内容区和内边距
+                        -这些属性都是只读的，不能修改
+                */ 
+            //    alert( "clientHeight="+box1.clientHeight);//200
+            //    alert("clientWidth="+box1.clientWidth);//200
+            }
+            box2.onclick=function(){
+                /*
+                    offsetWidth
+                    offsetHeight
+                        -获取元素的整个宽度和高度，包括内容区，内边距和边框
+                        
+                */
+                /*
+                    offsetParent
+                        -可以用来获取当前元素的定位元素
+                        -会获取到离当前元素最近开启了定位的祖先元素
+                                如果所有的祖先元素都没有开启定位，则返回body
+                */    
+                // alert("offsetHeight="+box2.offsetHeight);//300
+                // alert("offsetWidth="+box2.offsetWidth);//300
+                // var op=(box2.offsetParent);
+                // alert(op.id)//body
+
+                /*
+                    offsetLeft
+                        当前元素相对于其定位父元素的水平偏移量
+                    offsetTop
+                        -当前元素相对于其定位父元素的垂直偏移量
+
+                        padding无效
+                        margin有效
+                */ 
+               alert(box2.offsetLeft);//30+10没有开启定位-----开启定位是0
+            }
+
+        }
+
+    </script>
+</head>
+<body id="body">
+    <div id=box3>
+        <div id=box2>
+            <div id="box1">
+
+            </div>
+        </div>
+    </div>
+    <div id=box4>
+
+    </div>
+</body>
+</html>

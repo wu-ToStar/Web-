@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var allbox=document.getElementById("checkboxAllBox");
+            var items=document.getElementsByName("items");
+
+
+
+            //全选
+            var all=document.getElementById("checkAll")
+            all.onclick=function(){
+                var items=document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    items[i].checked=true;
+                }
+                allbox.checked=true;
+            }
+
+            //全不选
+            var no=document.getElementById("checkNo")
+            no.onclick=function(){
+                var items=document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    items[i].checked=false;
+                }
+                allbox.checked=false;
+            }
+
+            //反选
+            var rev=document.getElementById("checkRev")
+            rev.onclick=function(){
+                var items=document.getElementsByName("items");
+                allbox.checked=true;
+                for(var i=0;i<items.length;i++){
+                    
+                    // items[i].checked=!items[i].checked;
+                    // if(!items[i].checked){
+                    //     allbox.checked=false;
+                    // }
+
+                    if(items[i].checked==true){
+                        items[i].checked=false;
+                        allbox.checked=false;
+                    }else{
+                        items[i].checked=true;
+                    }
+                }
+            }
+
+
+            //提交选项
+            var send=document.getElementById("sendBtn")
+            send.onclick=function(){
+                var items=document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    if(items[i].checked){
+                        alert(items[i].value)
+                    }
+                }
+            }
+
+            //全选框
+            var allbox=document.getElementById("checkboxAllBox");
+            allbox.onclick=function(){
+                var items=document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    items[i].checked=this.checked;
+                }
+            }
+            
+            //items
+            for(var i=0;i<items.length;i++){
+                items[i].onclick=function(){
+                    allbox.checked=true;
+                    for(var j=0;j<items.length;j++){
+                        if(!items[j].checked){
+                            allbox.checked=false;
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <form action="">
+        你喜欢的运动是？<input type="checkbox" id="checkboxAllBox">all/no-one
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+
+        <input type="button" value="全选" id="checkAll">
+        <input type="button" value="全不选" id="checkNo">
+        <input type="button" value="反 选" id="checkRev">
+        <input type="button" value="提交" id="sendBtn">
+    </form>
+</body>
+</html>

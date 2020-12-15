@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 500px;
+            height: 320px;
+        }
+        #outer{
+            width: 520px;
+            height: 320px;
+            margin: 10px auto;
+            padding: 10px 0px;
+            background-color: #bfa;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgList{
+            height: 320px;
+            width: 2800px;
+            position: absolute;
+            left: 0;
+        }
+        #imgList li{
+            float: left;
+            margin: 0 10px;
+            list-style: none;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+        }
+        #navDiv a{
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin-left: 10px;
+            background-color: red;
+            opacity: 0.9;
+        }
+    </style>
+    <script type="text/javascript" src="./12tool.js"></script>
+    <script>
+        window.onload=function(){
+            var imgList =document.getElementById("imgList");
+            var imgArray=document.getElementsByTagName("img");
+
+            var a=document.getElementsByTagName("a");
+            var outer=document.getElementById("outer");
+            var navDiv=document.getElementById("navDiv");
+            //a标签居中
+            navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2+"px";
+
+
+            var index=0;
+            a[index].style.backgroundColor="black";
+            for(var i=0;i<a.length;i++){
+                a[i].num=i;
+                //a链接跳转图片位置
+                a[i].onclick=function(){
+                    clearInterval(time)
+                    index=this.num;
+                    // imgList.style.left=index*(-520)+"px";
+                    setA();
+                    //12.tool.js页面
+                    move(imgList,"left",-520*index,20,function(){
+                        autoChange();
+                    });
+                }
+            }
+            autoChange();
+            //按钮颜色变化
+            function setA(){
+                if(index>= imgArray.length-1){
+                    index=0;
+                    imgList.style.left=0;
+                }
+
+                for(var  i=0;i<a.length;i++){
+                    a[i].style.backgroundColor="";
+                }
+                a[index].style.backgroundColor="black";
+            }
+            //自动刷新
+            var time;
+            function autoChange(){
+                time=setInterval(function(){
+                    index++;
+                    index %= imgArray.length;
+                    move(imgList,"left",-520*index,20,function(){
+                        setA();
+                    });
+                },3000)
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="./img/剑士.png" alt=""></li>
+            <li><img src="./img/弓.png" alt=""></li>
+            <li><img src="./img/殿堂.png" alt=""></li>
+            <li><img src="./img/鬼刀.jpeg" alt=""></li>
+            <li><img src="./img/剑士.png" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

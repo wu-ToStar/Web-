@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        script标签一旦用于引入外部文件，就不能编写代码，编写也会忽略
+        如果需要则新创建一个script标签用于编写代码
+     -->
+     <script type="text/javascript" src="./02script.js"></script>
+     <script type="text/javascript">
+        alert("我是内部的JS代码");
+        /*
+        
+        */  
+    </script>
+</head>
+<body>
+    <!-- 
+        可以将JS代码编写到标签的onlick属性中
+        当我们点击按钮时，JS代码才会执行
+
+        虽然可以写在标签的属性中，多少他们属于结构于行为耦合，不方便维护，不推荐使用
+     -->
+     <button onclick="alert('讨厌，你点我干嘛~~');">按钮</button>
+     <!-- 
+         可以将js代码写在超链接的href属性中，当我们点击超链接时，JS代码才会执行
+      -->
+      <a href="javascript:alert('让你点就点！');">超链接</a>
+      <a href="javascript:;">超链接</a>
+</body>
+</html>

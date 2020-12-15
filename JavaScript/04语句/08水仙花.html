@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // for(var i=100;i<1000;i++){
+        //     //获取百位数
+        //     var bai=parseInt(i/100);
+        //     //获取十位数
+        //     var shi=parseInt((i-bai*100)/10);
+        //     //获取个位数
+        //     var ge=i%10;
+        //     if(bai*bai*bai+shi*shi*shi+ge*ge*ge==i){
+        //         console.log(i+"是水仙花数")
+        //     }
+        // }
+        var num=prompt("输入质数")
+        var flag=true;
+        if(num<2){
+
+        }else{
+            for(var i=2;i<num;i++){
+                //判断num是否能被i整除
+                if(num%i == 0){
+                    //被整除说明不是质数
+                    flag=false;
+                }
+            }
+            if(flag){
+                alert(num+"是质数");
+            }else{
+                alert(num+"不是质数");
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

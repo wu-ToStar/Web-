@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+         *Date对象
+         *  在JS中使用Date对象表示一个时间
+         */ 
+
+         //创建一个Date对象
+         var d=new Date();
+         console.log(d);
+
+         //创建一个指定的时间对象
+         //需要在构造函数中传递一个表示时间的字符串作为参数
+         var d2=new Date("12/30/2020 12:12:12");
+         //容器格式 月/日/年 时:分:秒
+         console.log(d2);
+
+
+        //  getDate() 获取当前对象是几日
+        var date=d.getDate();
+        console.log(date+"号");
+
+        //  getDay() 获取当前对象是周几
+        //  0周日 
+        var day=d.getDay();
+        console.log("周"+day);
+
+        //  getMonth() 获取当前对象是几月
+        //0表示1月
+       var month=d.getMonth();
+       console.log(month+1+"月");
+
+        //  getFullyear() 获取当前对象是几年
+        var year=d.getFullYear();
+        console.log(year+"年");
+
+        /*
+             getTime() 
+                -获取当前对象的时间戳
+                -时间戳，指定是从格林威治时间的1970年1月1驲，0时0分0秒
+                    到当前日期所花费的毫秒数（1秒=1000毫秒）
+                -计算机底层在保存时间使用的都1时时间戳
+        */  
+        var time=d.getTime();
+        console.log("时间戳:"+time);
+        var time2=Date.now();
+        console.log("时间戳:"+time2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var ul=document.getElementById("ul");
+            btn.onclick=function(){
+                var li=document.createElement("li");
+                li.innerHTML="<a href='javascript:;'  class='link'>我是新的a链接</a>";
+                ul.appendChild(li);
+
+            }
+
+
+            /*
+                每次都绑定一个响应函数，只能操作已有的超链接，而新的只能重新绑定
+            */ 
+            // var allA=document.getElementsByTagName("a");
+            // allA.onclick=function(){
+            //     for(var i=0;i<allA.length;i++){
+            //         allA[i].onclick=function(){
+            //             alert("我是a");
+            //         }
+            //     }
+            // }
+
+
+            /*
+                事件的委托
+                    -指将事件统一绑定给元素的共同祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素
+                        从而通过祖先元素的响应函数来处理事件
+                    -事件委托是利用了冒泡，通过委托可以减少事件的绑定的次数，提供程序的性能
+            */ 
+            
+           ul.onclick=function(event){
+                event=event || window.event;
+
+                /*
+                    target
+                        -event中的target表示的触发事件的对象
+                */ 
+                //如果触发事件的对象是我们所期盼的元素，则执行否则不执行
+                if(event.target.className == "link"){
+                    alert("我是ul中的a");
+                    alert("我是ul");
+                }
+           }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">添加a标签</button>
+    <ul id="ul">
+        <li><a href="javascript:;" class="link"> 1</a> </li>
+        <li><a href="javascript:;" class="link"> 2</a> </li>
+        <li><a href="javascript:;" class="link"> 3</a> </li>
+    </ul>
+</body>
+</html>

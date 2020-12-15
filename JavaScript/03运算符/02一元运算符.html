@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            一元运算符，只需要一个操作数
+                +正号
+                    +正号不会对数字产生任何影响
+                -负号
+                    -可以都数字进行负号的取反
+
+                -对于非Number类型的值
+                    它会将其转换为Number，然后再运算
+                    可以对一个其他数据类型使用+，将其转换为number
+                    和number函数原理一样
+        */  
+        var a=123;
+        a=-a;
+        a=true;
+        a="4";
+        a=+a;
+        var result=1+"2"+3;//123
+        var result=1+ +"2"+3;//6
+        console.log(typeof a);
+        console.log(a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

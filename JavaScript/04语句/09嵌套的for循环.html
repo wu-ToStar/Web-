@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            在循环的内部再创建一个循环，用来控制图像的宽度
+            目前我们的外部的for循环会执行一次，内部就会执行5次
+            内层循环可以来决定那个图形的宽度，执行几次图像的宽度就是多少
+        */ 
+        for(var i=1;i<=5;i++){
+            for(var j=1;j<=i;j++){
+                document.write("*");
+            } 
+            document.write("<br>"); 
+        }document.write("<br>");
+        for(var c=5;c>=1;--c){
+            for(var b=0;b<=5-c;b++){
+                document.write("*");
+            } 
+            document.write("<br>"); 
+        }document.write("<br>");
+        for(var a=1;a<=5;a++){
+            for(var b=1;b<=5;b++){
+                document.write("*");
+            } 
+            document.write("<br>"); 
+        }document.write("<br>");
+        for(var c=5;c>=1;--c){
+            for(var b=1;b<=c;b++){
+                document.write("*");
+            } 
+            document.write("<br>"); 
+        }document.write("<br>");
+        for(var i=1;i<=5;i++){
+            for(var j=0;j<=5-i;j++){
+                document.write("*");
+            } 
+            document.write("<br>"); 
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">我是一个按钮</button>
+    <script>
+
+        /*
+            DOM，全称 Document Object Model 文档对象模型
+
+            文档：
+                文档表示整个HTML页面                                    文档
+            对象：                                                      |    
+                对象表示将网页的每一个部分转换为一个对象                  HTML                            
+            模型：                                                  /       \
+                使用模型表示对象之间的联系，方便我们找对象            head     body
+                                                                    |        |
+                                                                   title     a       
+                                                                    |        |
+                                                                文本节点    文本节点
+
+        */
+        /*
+            节点
+            节点：Node---构成HTML文档最基本的单元
+
+            文档节点(#document)--->元素节点(标签名)--->属性节点(属性名)--->文本节点(#text)
+                nodeType 9-----1-----2-----3
+                nodeValue null-----null-----属性值-----(*文本内容)
+        */ 
+
+        /*
+            浏览器已经为我们提供了文档节点 对象是window属性
+                可以在页面直接使用，文档节点代表的是整个网页
+        */ 
+       //获取到button对象
+        var btn=document.getElementById("btn");
+        //修改按钮的文字
+        btn.innerHTML="I`m button";
+    </script>
+</body>
+</html>

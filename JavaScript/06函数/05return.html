@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+
+        */ 
+        // function fun(){
+        //     alert("开始");
+        //     for(var i=0; i< 5;i++){
+                
+        //         if(i==2){
+        //             // break;
+        //             //continue;
+        //             //使用return可以结束整个函数
+        //             return;
+        //         }
+        //         console.log(i);
+        //     }
+        //     alert("结束");
+        // }
+        // fun();
+
+
+        /*
+            返回值可以时任意的数据类型
+            也可以是对象，也可以是一个函数
+        */ 
+        function fun2(){
+
+            return {name:"hi"};
+        }
+        var a=fun2();
+        console.log(a.name)
+
+        function fun3(){
+            function fun4(){
+                alert("4");
+            }
+            return fun4;
+            // return fun4();
+        }
+        a=fun3();
+        // console.log(a);
+        a();
+        fun3()();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

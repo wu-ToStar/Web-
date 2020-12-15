@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            /*
+                onmousewheel鼠标滚动的事件，会在鼠标滚动时触发（火狐不支持）
+            */ 
+            box1.onmousewheel=function(event){
+                event=event ||window.event;
+
+                //判断滚轮的滚动方向
+                //wheelDelta这个值我们不看大小，只看正负，向上滚是正，向下是负
+                //alert(event.wheelDelta);
+
+                //wheelDelta这个属性不在火狐在支持，向上滚是负，向下是正
+                //alert(event.detail);
+
+                if(event.wheelDelta >0 || event.detail<0){
+                    //alert("向上")
+                    box1.style.height=box1.clientHeight-10+"px";
+
+                }else{
+                    //alert("向下")
+                    box1.style.height=box1.clientHeight+10+"px";
+                }
+                /*
+                    使用addEventListener()方法绑定响应函数，取消默认行为不能使用return false
+                    需要使用event来取消默认行为event.preventDefault();
+                    但是IE8不支持
+                */ 
+                event.preventDefault && event.preventDefault();
+
+                /*
+                    当滚轮滚动时，如果浏览器有滚动条，滚动条会随之滚动
+                    这是浏览器的默认行为，如果不行为发生，则可以取消默认行为
+                */ 
+               return false;
+               
+            }
+            //在火狐中使用需要使用DOMMouseScroll 来判断滚动事件
+            //注意该事件需要绑定addEventListener()函数来绑定
+            bind(box1,"DOMMouseScroll",box1.onmousewheel);
+        }
+        function bind(obj,eventStr,callback){
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr,callback,false);
+            }else{
+                obj.attachEvent("on"+eventStr,function(){
+                    callback.call(obj);
+                });
+            }
+        }
+    </script>
+</head>
+<body style="width: 2000px;height: 2000px;">
+    <div id="box1">
+
+    </div>
+</body>
+</html>

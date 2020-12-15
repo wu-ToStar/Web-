@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            自增 ++
+                -通过自增可以使变量在自身的基础上增加1
+                -自增分成来你这： 后++(a++) 和 前++(++a)
+                    无论使a++ 还是++a ，都会使原变量的值自增1
+                        不同的是a++ 和++a的值不同
+                    a++的值等于原变量的值（自增后）
+                    ++a的值等于新值（自增前）
+
+            自减 --
+                -通过自减可以是变量在自身的基础上减1
+                -自减分成两种，后--(a--)和前--(--a)
+                    无论是a-- 还是 --a都会是原变量的值减1
+                        不同的是a-- 和--a的值不同
+                    a-- 是变量的原值（自减前的值）
+                    --a 是变量的先值（自减后的值）
+        */ 
+        var num=10;
+        num--;//9
+        --num;//8
+        console.log("num="+ --num);//7
+        console.log("num="+ num--);//7 -->6
+        var a=1;
+        // a++;
+        // ++a;
+        console.log(a++);
+        // console.log("a++ =" + a++);
+        // console.log("++a =" + ++a);
+        console.log("a ="+a);
+         
+         var c=10;
+         c++;
+         c++;
+         d=20;
+         var result=d++ + ++d + d;//20+22+22=64
+         console.log(result);//12
+
+
+
+         var n1=10,n2=20;
+         var n= n1++;
+         console.log("n ="+n);//10
+         console.log("n1 ="+n1);//11
+         n=++n1;
+         console.log("n ="+n);//12
+         console.log("n1 ="+n1);//12
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

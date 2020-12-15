@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            检查一个字符串中是否含有.
+            .表示任意字符
+            在正则表达式中使\作为转义字符
+            \. 来表示 .
+            \\ 表示 \
+
+            注意：使用构造函数时，由于它的产生是一个字符串，而\是字符串中的转义字符
+                如果使用\则需要使用\\来代替
+        */ 
+
+        var reg =/\./; //表示.
+
+        reg=/\\/;// 表示\
+
+        reg=new RegExp("\\.");//表示\.
+
+        console.log(reg);
+
+        /*
+            \w
+                任意单词，数字，_
+            \W
+                除了单词，数字，_
+            \d
+                [0-9]数字
+            \D
+                除了数字
+            \s
+                空格
+            \S
+                除了空格
+            \b
+                单词边界
+            \B
+        */ 
+       reg=/\w/;//reg=/\W/;
+
+       reg=/\d/;//reg=/\D/;
+
+       reg=/\s/;//reg=/\S/;
+
+       reg=/\b/;//reg=/\B/
+
+
+    //    创建一个正则表达式是否含有单词child
+
+    reg=/\bchild\b/;
+    console.log(reg.test("hello   child  "));
+       var str=prompt("请输入您的用户名");
+       //去掉字符串中的前后空格，用""来替换空格
+       str=str.replace(/^\s+ | \s+$/g,"");
+       console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

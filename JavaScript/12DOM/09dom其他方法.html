@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //保存的是body的引用
+            var body=document.body;
+            console.log(body);
+
+            //保存的是HTML根标签
+            var html=document.documentElement;
+            console.log(html);
+
+            //代表所有的元素
+            var all=document.all;
+            //all=document.getElementsByTagName("*");
+            console.log(all);
+
+            //根据以上的class属性值查询一组元素节点对象
+            var box=document.getElementsByClassName("box");
+            console.log(box);
+
+            var divs=document.getElementsByTagName("div");
+            console.log(divs);
+
+            /*
+                document.querySelector()
+                    -需要一个选择器的字符串作为参数，可以根据一个css选择器来查询一个元素节点
+            */ 
+            var div=document.querySelector(".box div")
+            console.log(div.innerHTML);
+
+            /*
+                document.querySelectAll()
+                    -该方法和querySelector()用法类似，不同的是它会将符合条件的元素封装到一个数组中返回
+            */ 
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div>我是box中的div</div>
+    </div>
+    <div></div>
+</body>
+</html>

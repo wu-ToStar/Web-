@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            通过具体的元素节点调用
+            1.getElementsByTagName()
+                -方法，返回当前节点的指定标签名后代节点
+            2.childNodes (有空格和换行时)!=children
+                -属性，表示当前节点的所有子节点
+            3.firstChild (有空格和换行时)!= firstElementChild
+                -属性，表示当前节点的第一个子节点
+            4.lastChild  (有空格和换行时)!= lastElementChild
+                -属性，表示当前节点的最后一个子节点
+        */ 
+
+        
+        window.onload=function(){
+            //查找#city下的所有li节点
+            var btn04=document.getElementById("btn04");
+            btn04.onclick=function(){
+                var city=document.getElementById("city");
+                var lis=city.getElementsByTagName("li")
+                for(var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+                
+            }
+            
+        
+            //返回#ciry下的所有子节点
+            var btn05=document.getElementById("btn05");
+            btn05.onclick=function(){
+                var city=document.getElementById("city");
+                /*
+                    标签的空白也会当成文本
+                */ 
+                var lis=city.childNodes;
+                // var lis=city.children;
+                for(var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            }
+            //返回#phone的第一个子节点
+            var btn06=document.getElementById("btn06");
+            btn06.onclick=function(){
+                var phone=document.getElementById("phone");
+                //firstChild (有空格和换行时)!= firstElementChild
+                alert((phone.firstChild).innerHTML);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>广州</li>
+    </ul>
+    <ul id="phone"><li>苹果</li>
+        <li>微软</li>
+        <li>华为</li>
+        <li>小米</li>
+        <li>魅族</li>
+    </ul>
+    <button id="btn04">查找#city下的所有li节点</button>
+    <button id="btn05">返回#ciry下的所有子节点</button>
+    <button id="btn06">返回#phone的第一个子节点</button>
+</body>
+</html>

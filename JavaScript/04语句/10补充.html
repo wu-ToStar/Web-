@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            
+        
+            //测试如下的程序性能
+            //在程序执行时开启计时器
+            //console.time("计时器的名字")
+            //它需要一个字符串作为参数，
+            console.time("test");
+            for(var i=2;i<1000;i++){
+                var flag=true;
+                for(var j=2;j<Math.sqrt(i);j++){
+                    //判断num是否能被i整除
+                    if(i%j == 0){
+                        //被整除说明不是质数
+                        flag=false;
+                        //使用break来结束循环
+                        break;
+                    }
+                }
+                if(flag){
+                    console.log(i+"是质数");
+                }else{
+                }
+                //终止计时器
+                //console.timeEnd("");用来停止计时器，需要一个计时器的名字作为参数
+                
+            }console.timeEnd("test");
+
+
+            //可以通过Math.sqrt()对一个数进行开方
+            var result=Math.sqrt();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

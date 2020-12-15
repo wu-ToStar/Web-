@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            typeof就是运算符，可以获得一个值的类型
+            它会将值的类型以字符串的形式返回
+            number String Boolean undefined object
+        */ 
+        /*
+            算术运算符
+                当对非number类型的值进行运算时，会将这些值转换为number然后
+                    任何和NaN做运算都是NaN
+
+                +可以对两个值进行加法运算,并将结果返回
+                    如果对两个字符串进行加法计算，则会做拼串
+                        会将字符串拼接成为一个字符串
+                    任何值和字符串做加法运算，都会先转换为字符串，然后再和字符串做拼接操作
+
+                -
+                    -可以对两个值进行减法运算，并将结果返回
+                *
+                    *可以对两个值进行乘法运算
+                /
+                    /可以对两个值进行除法运算
+                 %
+                    %取模运算（取余数）
+        */ 
+        var a=123;
+        a+1;
+        //var result =typeof a;
+        result=a+1;
+        result=45+55;
+        result=true+1;
+        result=false+1;
+        result=2+NaN;
+        result="hello "+" world";
+        result=123+"1";
+        // result=1+2+"3"≠"1"+2+3;
+        /*
+            我们可以利用这一点，来将任意数据转换为String
+            我们只要为任意的数据 +一个"" 即可将其转换为String
+        */ 
+        result=100-5;
+        result=100-true;
+        result=100-"1";
+        result=2*2;
+        result=2*"8";
+        result=2*undefined;
+        result=2*null;
+        result=4/2;
+        result=4/null;
+        /*
+            任何数做 - * /运算时都会自动转换为字符串
+            我们可以利用这一特点做隐式计算
+                可以通过为一个值 -null *1 /1 来将其转换为number
+                原理和number()函数一样
+        */ 
+        result=9%3;
+        result=+"5";
+        console.log(typeof result);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

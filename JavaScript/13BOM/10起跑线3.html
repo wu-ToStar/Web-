@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            background-color: red;
+             width: 100px;
+              height: 100px;
+              position: absolute;
+              top: 100px;
+        }
+        #box2{
+            background-color: yellow;
+             width: 100px;
+              height: 100px;
+              position: absolute;
+              top: 300px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var box=document.getElementById("box");
+            var btn2=document.getElementById("btn2");
+
+            
+            btn.onclick=function(){
+                move(box,"left",800,10);
+            };
+
+            btn2.onclick=function(){
+                 move(box,"left",0,10);
+            };
+
+
+            var btn3=document.getElementById("btn3");
+            var box=document.getElementById("box");
+            var btn4=document.getElementById("btn4");
+
+
+            btn3.onclick=function(){
+                move(box2,"left",800,5);
+            };
+
+            btn4.onclick=function(){
+                 move(box2,"width",800,5,function(){
+                    move(box2,"height",400,5,function(){
+                        move(box2,"top",0,5,function(){
+                            move(box2,"width",100,5,function(){
+                                move(box2,"height",100,5,function(){
+                                    move(box2,"top",300,5,function(){
+
+                                    });
+                                });
+                            });
+                        });
+                    });
+                 });
+            };
+        }
+        var time;
+        /*
+            obj:要执行动画的对象 
+            target：执行动画的位置 
+            speed ：移动速度 
+            attr:要执行动画的样式 left。。。。。。
+            callback:回调函数，这个函数将会在执行动画执行完毕以后执行
+        */ 
+        function move(obj,attr,target,speed,callback){
+                clearInterval(time);
+
+                var current=parseInt(getStyle(obj,attr));
+                if(current >= target){
+                    speed =-speed;
+                }
+                //开启一个定时器，用来执行动画效果
+                time=setInterval(function(){
+                    //获取1原来的box值
+                    var oldValue=parseInt(getStyle(obj,attr));
+                    //在旧的基础上加left
+                    var newValue=oldValue + speed;
+                    if((speed < 0 && newValue < target )||( speed > 0 && newValue > target)){
+                        newValue=target;
+                    }
+                    obj.style[attr]=newValue+"px";
+                    //当元素移动到0时，停止动画
+                    if(newValue == target){
+                        //到达目标，关闭定时器
+                        clearInterval(time);
+
+                        callback && callback();
+                    }
+                },15);
+            };
+        //用来获取指定元素的当前样式
+        function getStyle(obj,name){
+            if(window.getComputedStyle){
+                return getComputedStyle(obj,null)[name];
+            }else{
+                return obj.currentStyle[name]
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">向左移动</button>
+    <br/> <br/>
+    <button id="btn2">向右移动</button>
+    <div id="box"></div>
+    <div style="width: 0px; height: 1000px; border-left: 1px solid black;position: absolute; left: 800px;top: 0;"></div>
+    
+    <br/> <br/><br/> <br/><br/> <br/><br/> <br/>
+    <button id="btn3">box2向左移动</button>
+    <br/> <br/>
+    <button id="btn4">box2向右移动</button>
+    <div id="box2"></div>
+</body>
+</html>

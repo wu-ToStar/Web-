@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write("主机名和端口号:"+location.host+"</br>");
+        
+        document.write("url链接"+location.href+"</br>");
+        document.write("url协议:"+location.protocol+"</br>");
+        document.write("主机名:"+location.hostname+"</br>");
+        document.write("端口号:"+location.port+"</br>");
+        document.write("路径:"+location.pathname+"</br>");
+        document.write("?查询部分:"+location.search+"</br>")
+        
+        window.onload=function(){
+            
+
+            var btn1=document.getElementById("btn1");
+            var btn2=document.getElementById("btn2");
+            var btn3=document.getElementById("btn3");
+            btn1.onclick=function(){
+                //location="http://www.baidu.com";
+                /*
+                    如果直接将location属性修改错误一个完整的路径
+                    则会跳转该链接，并生成新的历史记录
+                */ 
+
+                /*
+                    assign()
+                        -用来跳转到其他的页面，作用和直接修改location一样
+                */ 
+                location.assign("./02history.html");
+            }
+            btn2.onclick=function(){
+                /*
+                    reload()
+                        -重新加载当前页面，作用和刷新按钮一样
+                        -如果在方法中传递一个true，作为参数，则强制清空缓存刷新页面
+                */ 
+                location.reload(true);
+            }
+            btn3.onclick=function(){
+                /*
+                    replace()
+                        -使用一个新的页面替换当前页面，调用完毕也会跳转页面
+                            捕获生成历史记录，不能使用回退按钮
+                */ 
+                location.replace("http://www.baidu.com");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">跳转页面</button>
+    <button id="btn2">强制刷新</button>
+    <button id="btn3">跳转不返回</button>
+    <input type="text">
+</body>
+</html>

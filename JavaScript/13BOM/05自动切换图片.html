@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+
+            var img1=document.getElementsByTagName("img")[0];
+            var imgArr=["./img/殿堂.png","./img/弓.png","./img/鬼刀.jpeg","./img/剑士.png"];
+            var index=0;
+            var time;
+
+            var btn1=document.getElementById("btn1");
+            btn1.onclick=function(){
+                /*
+                    目前。我们每点击一次按钮，就会开启一个定时器，
+                    多次点击就会开启多个定时器，这会导致图片的切换速度过块
+                    而且我们只能关闭最后一次开启的定时器
+                */ 
+
+                //在开启定时器之前，需要将当前元素的其他定时器关闭
+                clearInterval(time);
+                time=setInterval(function(){
+                index++;
+                // if(index >= imgArr.length){
+                //     index=0;
+                // }
+                index %=imgArr.length;
+                    img1.src=imgArr[index];
+                },1000);
+            }
+            
+
+            var btn2=document.getElementById("btn2");
+            btn2.onclick=function(){
+                //点击按钮，关闭定时器
+                clearInterval(time);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="./img/殿堂.png" alt="" id="img1">
+    <button id="btn1">开始</button>
+    <button id="btn2">暂停</button>
+</body>
+</html>

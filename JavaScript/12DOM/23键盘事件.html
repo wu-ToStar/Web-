@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function(){
+            /*
+                键盘事件：
+                    onkeydown
+                        -按键被按下
+                    onkeyup
+                        -按键被松开
+
+                    键盘事件一般会绑定给一些可以获取到焦点的对象或者时document
+            */
+           document.onkeydown=function(event){
+                event=event || window.event;
+                /*
+                    可以通过keyCode来获取按键的编码
+                        通过它可以判断是那个键被按下了
+                        除了keyCode，还有
+                            altKey
+                            ctrlKey
+                            shiftKey
+                                -按下返回true，否则返回false
+                */ 
+                if(event.keyCode ===89 && event.ctrlKey){
+                    console.log("CTRL和Y都被按下了")
+                }
+           }
+           var input=document.getElementsByTagName("input")[0];
+           input.onkeydown=function(event){
+            event=event || window.event;
+            //使文本框中不能输入数字
+                if(event.keyCode >=48 && event.keyCode <=57){
+                    //如果在onKeydown中取消默认行为，则输入的内容，捕获出现在文本框中 
+                    return false;
+                }
+           }
+        }
+    </script>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>

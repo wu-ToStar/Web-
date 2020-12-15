@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            定义一个函数
+                可以在函数的()中来指定一个或多个形参
+                多个形参之间使用,隔开，声明形参就相当于在函数内部声明了对应的变量
+
+        */ 
+        function sum(a,b){
+            console.log(a+b);
+        }
+
+        /*
+            在调用时，可在()中指定实参
+                实参将会将赋值给函数在对应的形参
+        */
+        sum(1,12);
+
+        /*调用函数时解析器不会检查实参的类型，
+                所以要注意，是否会接受非法的参数，要进行检查
+            函数的实参可以是任意类型
+        */
+        sum(true,false);
+
+        /*
+            调用函数时，解析器不会检查实参的数量
+                多余的实参不会被赋值
+                如果实参的数量少于形参的数量，则没有对应实参的形参将时undefined
+        */ 
+        //sum(11,11,11,11);
+        //sum(123);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

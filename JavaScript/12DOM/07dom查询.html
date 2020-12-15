@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            parentNode
+                -属性，表示当前节点的父节点
+            previousSibling
+                previousElementSibling (有空格和换行时)!=previousSibling
+                -属性，表示当前节点的前一个兄弟节点
+            nextSibling
+                nextSibling  (有空格和换行时)!=nextElementSibling
+                -属性，表示当前节点的后一个兄弟节点
+        */ 
+        function myClick(btnid,fun){
+            var btn=document.getElementById(btnid);
+            btn.onclick=fun;
+        }
+        window.onload=function(){
+            //返回#bj的父节点
+            myClick("btn07",function(){
+                var bj=document.getElementById("bj");
+                /*
+                    innerHTML
+                    innerText
+                        -该属性可以获取到元素内部的文本内容
+                        -它和innerHTML类似，不同的是它会自动将HTML去除
+                */ 
+                alert((bj.parentNode).innerText);
+                
+            });
+
+            //返回#Android的前一个兄弟节点
+            myClick("btn08",function(){
+                var and=document.getElementById("Android");
+                //previousElementSibling (有空格和换行时)!=previousSibling
+                alert((and.previousElementSibling).innerHTML)
+            });
+
+            //读取#username的value属性值
+            myClick("btn09",function(){
+                var text=document.getElementsByName("contant");
+                
+                alert(text[0].value);
+            });
+
+
+            //设置#username的value属性值
+            myClick("btn10",function(){
+                var text=document.getElementsByName("contant");
+                
+                text[0].value="hi";
+            });
+
+            //返回#bj的文本值
+            myClick("btn11",function(){
+                var bj=document.getElementById("bj")
+                //bj.innerText="1";//修改
+                alert(bj.innerText);
+                // var update=bj.firstChild;
+                // alert(update.nodeValue);
+            })
+        }
+        
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>广州</li>
+    </ul>
+    <ul id="phone"><li>苹果</li>
+        <li id="Android">微软</li>
+        <li>华为</li>
+        <li>小米</li>
+        <li>魅族</li>
+    </ul>
+    <input type="text" name="contant" value="abc">
+    <button id="btn07">返回#bj的父节点</button>
+    <button id="btn08">返回#Android的前一个相兄弟节点</button>
+    <button id="btn09">读取#username的value属性值</button>
+    <button id="btn10">设置#username的value属性值</button>
+    <button id="btn11">返回#bj的文本值</button>
+</body>
+</html>

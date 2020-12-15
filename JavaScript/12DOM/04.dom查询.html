@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            getElementById()
+                通过(id)属性获取(一个)元素节点对象
+            getElementsByTagName()
+                通过(标签名)获取(一组)元素节点对象
+            getElementsByName()
+                通过(name)属性获取(一组)元素节点对象
+        */ 
+        window.onload=function(){
+            //查找#bj节点
+            var btn01=document.getElementById("btn01");
+            btn01.onclick=function(){
+                var bj=document.getElementById("bj");
+                alert(bj.innerHTML);
+            }
+
+            //查找所有li节点
+            var btn02=document.getElementById("btn02");
+            btn02.onclick=function(){
+                /*
+                    getElementsByTagName()可以根据标签名来获取一组节点对象
+                        这个方法会给我们返回一个类数组对象，所有查询的元素都会封装到数组中
+                */ 
+                var lis=document.getElementsByTagName("li");
+                for(var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            }
+
+            //查找name=gender的所有节点
+            var btn03=document.getElementById("btn03");
+            btn03.onclick=function(){
+                var inputs=document.getElementsByName("gender");
+            for(var i=0;i<inputs.length;i++){
+                /*
+                    innerHTML用于获取元素内部的HTMl代码
+                        对于自结束标签，这个属性没有意义
+
+                    如果要读取元素节点属性
+                        直接使用元素.属性名
+
+                    读取class属性时需要使用元素.className
+                */ 
+                alert(inputs[i].value);
+            }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>广州</li>
+    </ul>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    gender:
+    <input type="radio" name="gender" value="male">
+    Male
+    <input type="radio" name="gender" value="female">
+    Female
+    <button id="btn01">查找#bj节点</button>
+    <button id="btn02">查找所有li节点</button>
+    <button id="btn03">查找name=gender的所有节点</button>
+</body>
+</html>

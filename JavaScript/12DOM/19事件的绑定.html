@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            
+            var btn=document.getElementById("btn");
+           
+                bind(btn,"click",function(){
+                    alert(this);
+                });
+            
+
+            /*
+                当对象.事件=函数的显示绑定需要函数
+                    它只能同时为一个元素的一个事件绑定一个函数
+                    不能绑定多个，后面的会覆盖掉前面的
+            */ 
+            // btn.onclick=function(){
+            //     alert("1")
+            // }
+            // btn.onclick=function(){
+            //     alert("2")
+            // }
+
+
+            /*
+                addEventListener()
+                    -通过这个方法可以为元素绑定响应函数
+                    -参数
+                        1.事件的字符串，不要on
+                        2.回调函数，当事件触发时该函数会被调用
+                        3.是否在捕捉阶段触发事件，需要一个布尔值，一般都时false
+
+                    使用addEventListener()可以同时为一个元素的相同事件同时绑定多个函数
+                        这样当事件被触发时，需要函数将会按照函数的绑定属性执行
+            */ 
+            // btn.addEventListener("click",function () {
+            //     alert("1")
+            // });
+            // btn.addEventListener("click",function () {
+            //     alert("2")
+            // });
+
+
+
+            /*
+                attachEvent()
+                    -在IE8中使用attachEvent()来绑定事件
+                    -参数：
+                        1.事件的字符串，要on
+                        2.回调函数
+                    
+                    -这个方法也可以同时为一个函数绑定多个处理函数
+                        不同的是它是后绑定先执行，执行顺序和addEventListener()相反
+            */ 
+            // btn.attachEvent("onclick",function(){
+            //     alert("1");
+            // });
+            // btn.attachEvent("onclick",function(){
+            //     alert("2");
+            // });
+            
+        };
+        /*
+                定义一个函数，用来为指定元素判断响应函数
+                    参数：
+                        obj 要绑定事件的对象
+                        eventStr 事件的字符串（不要on）
+                        callback 回调函数
+        */ 
+        function  bind(obj,eventStr,callback){
+                if(obj.addEventListener){
+                    //大部分浏览器兼容的方式
+                    obj.addEventListener(eventStr,callback,false);
+                }else{
+                    /*
+                        this是谁有调用方式决定
+                        IE特有的callback--->window
+                            改变对象
+                        callback.call(obj);---> button
+                    */ 
+                    obj.attachEvent("on"+eventStr,function(){
+                        callback.call(obj);
+                    });
+                }
+            };
+    </script>
+</head>
+<body>
+    <button id="btn">点我</button>
+</body>
+</html>
