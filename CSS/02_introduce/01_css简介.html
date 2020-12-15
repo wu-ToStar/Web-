@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        第二种方式（内部样式表）
+            只对一个网页起作用，不能跨页面使用
+     -->
+    <!-- <style>
+        p{
+            color: red;
+            font-size: 30px;
+        }
+    </style> -->
+    <!-- 
+        第三种方式（外部样式表）
+            将样式编写到外部css文件中
+            通过link标签来引入css标签
+            不同页面之间进行复用
+     -->
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 
+        网页三部分
+            结构(html)
+            表现(css)
+            行为(javaScript)
+        
+        css---层叠样式表
+            -设置网页样式
+     -->
+
+     <!-- 第一种方式（行内样式表，内联样式表）
+            只能对一个标签起作用
+     -->
+     <!-- <p style="color: red;">少小离家老大回，乡音无改鬓毛衰</p> -->
+     <p>少小离家老大回，乡音无改鬓毛衰</p>
+     <p>落霞与孤鹜齐飞，秋水共长天一色</p>
+     <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <dl>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </dl>
+</body>
+</html>

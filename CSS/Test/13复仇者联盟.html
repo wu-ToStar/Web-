@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            perspective: 800px;
+        }
+        .all{
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            /* 设置3D变形效果 */
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        .all>div{
+            width: 200px;
+            height: 200px;
+            /* 设置元素透明效果 */
+            opacity: 0.8;
+            position: absolute;
+        }
+        img{
+            vertical-align: top;
+            width: 200px;
+            height: 200px;
+        }
+        .box1{
+            transform:  rotateY(90deg) translateZ(100px);
+        }
+        .box2{
+            transform:  rotateY(-90deg) translateZ(100px);
+        }
+        .box3{
+            transform:  rotateX(90deg) translateZ(100px);
+        }
+        .box4{
+            transform:  rotateX(-90deg) translateZ(100px);
+        }
+        .box5{
+            transform:  rotateY(180deg) translateZ(100px);
+        }
+        .box6{
+            transform:  rotateY(0deg) translateZ(100px);
+        }
+        @keyframes rotate{
+            from{
+                transform: rotateX(0) rotateZ(0);
+            }
+            to{
+                transform: rotateX(1turn) rotateZ(1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="box1">
+            <img src="./images/man1.jpg" >
+        </div>
+        <div class="box2">
+            <img src="./images/man2.jpg" >
+        </div>
+        <div class="box3">
+            <img src="./images/man3.jpg" >
+        </div>
+        <div class="box4">
+            <img src="./images/man4.jpg" >
+        </div>
+        <div class="box5">
+            <img src="./images/man5.jpg" >
+        </div>
+        <div class="box6">
+            <img src="./images/man6.jpg" >
+        </div>
+    </div>
+</body>
+</html>

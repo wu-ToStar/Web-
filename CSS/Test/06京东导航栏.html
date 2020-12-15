@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fa/css/font-awesome.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .top{
+            position: fixed;
+            width: 100%;
+            background-color: #E3E4E5;
+        }
+        .top-bar{
+            width: 1190px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        .location{
+            width: 60px;
+            float: left;
+            line-height: 30px;
+        }
+        .location .fa{
+            color: #f10125;
+        }
+        .location .selected-city{
+            border-bottom: none;
+            width: 58px;padding-left: 10px;
+            border: 1px solid rgba(204, 204, 204, 0.3);
+            position: relative;
+            z-index: 99;
+            top: -2px;
+        }
+        .location .selected-city a{
+            font-size: 12px;
+            color: #999999;
+        }
+        .location:hover .selected-city{
+            width: 58px;
+            background-color: white;
+            border: 1px solid rgba(204, 204, 204, 0.3);
+            border-bottom: none;
+            padding-bottom: 2px;
+        }
+        .location .choice-city{
+            display: none;
+            width: 320px;
+            height: 440px;
+            background-color: white;
+            border: 1px solid rgba(204, 204, 204, 0.3);
+            position: absolute;
+            box-shadow: 0 0 10px rgba(204, 204, 204, 0.3);
+            z-index: 9;
+            top: 31px;
+        }
+        .location:hover .choice-city{
+            display: block;
+        }
+        .shortcut{
+            width: 720px;
+            float: right;
+            font-size: 12px;
+            color: #999999;
+        }
+        .shortcut a{
+            color: #999999;
+        }
+        .shortcut a.hightlight{
+            color: #f10125;
+        }
+        .shortcut a:hover{
+            color: #f10125;
+        }
+        .shortcut li{
+            list-style: none;
+            float: left;
+            line-height: 30px;
+        }
+        .shortcut .line{
+            font-size: 12px;
+            margin: 0px 10px;
+        }
+        .shortcut .line::before{
+            content: "|";
+            
+        }
+        .conter{
+            height: 3000px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="top-bar">
+            <div class="location">
+                <div class="selected-city">
+                    <i class="fa fa-map-marker"></i>
+                    <a href="javascript:;">湖南</a>
+                </div>
+                <div class="choice-city">
+    
+                </div>
+            </div>
+            <div class="shortcut">
+                <ul>
+                    <li>
+                        <a href="javascript:;">你好,请登录</a>
+                    </li>
+                    <li>
+                        <a  class="hightlight" href="javascript:;"> 免费注册</a>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <a href="javascript:;">我的订单</a>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <a href="javascript:;">我的京东</a>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <a href="javascript:;">京东会员</a>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <a  class="hightlight" href="javascript:;">企业采购</a>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <span>客户服务</span>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <span>网站导航</span>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <span>手机京东</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="conter">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            长度单位：
+                像素：
+                    -由一个个小像素构成
+                    -不同屏幕的显示器像素大小是不同的
+
+                百分比
+                    -属性值是相对与父元素属性的百分比
+                    -百分比跟随与父元素的改变而改变
+
+                em
+                    -em是相对于元素的字体大小来计算的
+                    -em会根据字体的大小改变而改变
+
+                rem
+                    -rem是相对于根元素的字体大小来计算的(移动端适配使用多)
+         */
+        .box1{
+            background-color: orange;
+            height: 200px;
+            width: 200px;
+       }
+       .box2{
+           background-color: aqua;
+           height: 50%;
+           width: 50%;
+       }
+       .box3{
+           background-color: blueviolet;
+           /* font-size: 20px; */
+            /* width: 10em;
+            height: 10em; */
+            width: 10rem;
+            height: 10rem;
+       }
+       html{
+           font-size: 20px;
+       }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+
+        </div>
+    </div>
+    <div class="box3">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 50%;
+            border: 1px solid black;
+            /* border-spacing: 指定边框之间的距离 */
+            /* border-spacing: 0px; */
+            /*  border-collapse: collapse;设置边框的合并*/
+            border-collapse: collapse;
+            margin:  0 auto;
+        }
+        td{
+            border: 1px solid black;
+            text-align: center;
+            height: 100px;
+            /* 默认情况下在td元素中是垂直居中的 */
+            vertical-align: middle;
+        }
+        /* 
+            如果表格中没有tbody二十使用tr
+                浏览器自动设置table
+         */
+         tbody > tr:nth-child(2n+1){
+             background-color: #bfa;
+         }
+         .box1{
+             width: 200px;
+             height: 200px;
+             background-color: burlywood;
+             /* 颜色设置为单元格 */
+             display: table-cell;
+             vertical-align: middle;
+         }
+         .box2{
+            width: 20px;
+             height: 20px;
+             background-color: chartreuse;
+             margin:  0 auto;
+         }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>😫
+    <table>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+            <td>地址</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男·</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男·</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男·</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box{
+            margin: 0 auto;
+            width: 1400px;
+            height: 1000px;
+            background-color: azure;
+        }
+        #header{
+            width: 1200px;
+            height: 150px;
+            margin: 0 auto;
+            background-color: white;
+        }
+        .logo img{
+            width: 200px;
+            height: 150px;
+            float: left;
+        }
+        #nav{
+            margin: 30px 100px;
+            float: left;
+        }
+        .dhl li{
+            display: inline;
+        }
+        .dhl li:hover{
+            color: red;
+        }
+        .dhl1 li{
+            list-style: none;
+            padding-left: 20px;
+        }
+        .dhl1 li a::after{
+            content: "  /  ";
+            color: grey;
+        }
+        a{
+            color: grey;
+            text-decoration:none;
+        }
+        a:hover{
+            color: red;
+        }
+        .button1{
+            width: 110px;height: 60px;
+            background-color: red;
+        }
+        #left{
+            width: 300px;
+            height: 600px;
+            border: red 1px solid;
+            background-color: white;float: left;
+        }
+        #left li{
+            
+            height: 30px;
+            line-height: 30px;
+        }
+        #left li:hover{
+            background-color: silver;
+        }
+        #middle{
+            width: 880px;
+            height: 600px;
+            border: red 1px solid;
+            float: left;
+            position: relative;
+        }
+        #middle li{
+            position: absolute;
+        }
+        #middle li:nth-child(7){
+            z-index: 1;
+        }
+        #middle img{
+            width: 880px;
+            height: 600px;
+        }
+        .pointer{
+            position: absolute;
+            z-index: 99;
+            bottom: 20px;
+            left: 40px;
+        }
+        .pointer a{
+            display: block;
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            /*  */
+            background-clip: content-box;
+            border: 2px solid transparent;
+        }
+        .pointer a:hover,
+        .pointer a.active{
+            background-color: white;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        #right{
+            width: 200px;
+            height: 600px;
+            border: red 1px solid;
+            float: left;
+            background-color: white3;
+        }
+        #right img{
+            width: 100%;
+        }
+        #right img:not(last-child){
+            margin-bottom: 19px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="header">
+                <div class="logo">
+                    <img src="./images/logo.gif" alt="">
+                </div>
+                <div id="nav">
+                    <input type="text" style="width: 480px;height: 60px;
+                    border-color: red;">
+                    <button class="button1">按钮</button>
+                    <ul class="dhl">
+                        <li>健康狂欢购</li>
+                        <li>京造1111</li>
+                        <li>酱油蚝油</li>
+                        <li>24期免息</li>
+                        <li>爆款家电</li>
+                        <li>酱油蚝油</li>
+                        <li>24期免息</li>
+                        <li>爆款家电</li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="./images/logo.gif" alt="">
+                </div>
+        </div>
+        <div id="main">
+            <div id="left">
+                <ul class="dhl1">
+                    <li> <a href="">家用电器</a></li>
+                    <li> <a href="">手机</a><a href="">运营商</a><a href="">数码</a></li>
+                    <li> <a href="">电脑</a><a href="">办公</a></li>
+                    <li> <a href="">家居</a><a href="">家具</a><a href="">家装</a></li>
+                    <li> <a href="">男装</a><a href="">女装</a><a href="">童装</a></li>
+                    <li> <a href="">美妆</a><a href="#">个人清洁</a><a href="">宠物</a></li>
+                    <li> <a href="">女鞋</a><a href="">箱包</a><a href="">钟表</a></li>
+                    <li> <a href="">男鞋</a><a href="">运动</a><a href="">户外</a></li>
+                    <li> <a href="">房产</a><a href="">汽车</a><a href="">汽车用户</a></li>
+                    <li> <a href="">母婴</a><a href="">玩具乐器</a></li>
+                    <li> <a href="">食品</a><a href="">酒类</a><a href="">生鲜</a></li>
+                    <li> <a href="">艺术</a><a href="">礼品鲜花</a><a href="">农资绿植</a></li>
+                    <li> <a href="">医药保健</a><a href="">计生情趣</a></li>
+                    <li> <a href="">男鞋</a><a href="">运动</a><a href="">户外</a></li>
+                    <li> <a href="">房产</a><a href="">汽车</a><a href="">汽车用户</a></li>
+                    <li> <a href="">母婴</a><a href="">玩具乐器</a></li>
+                    <li> <a href="">食品</a><a href="">酒类</a><a href="">生鲜</a></li>
+                    <li> <a href="">艺术</a><a href="">礼品鲜花</a><a href="">农资绿植</a></li>
+                    <li> <a href="">医药保健</a><a href="">计生情趣</a></li>
+                </ul>
+            </div>
+            <div id="middle">
+                <ul>
+                    <li><a href=""><img src="./images/001.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/002.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/03.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/004.jpg" alt=""></a></li>
+                    <li><a href=""><img src="./images/005.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/006.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/007.jpg.webp" alt=""></a></li>
+                    <li><a href=""><img src="./images/008.jpg.webp" alt=""></a></li>
+                    <div class="pointer">
+                        <a class="active" href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </div>
+                </ul>
+            </div>
+            <div id="right">
+                <img src="./images/1.webp" alt="">
+                <img src="./images/2.webp" alt="">
+                <img src="./images/3.webp" alt="">
+            </div>
+        </div>
+        <div id="foot">
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 可以将行高设置和高度一样的值，使位置在元素中垂直居中 */
+        div{
+            /* height: 200px; */
+            line-height: 200px;
+            /* line-height: 2.5; */
+            font-size: 50px;
+            border: 1px red solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+            行高（line-height）
+                -行高指的是位置占有的实际高度
+                -指定大小（em px）
+                    如果时一个整数的话，行高将是字体的指定倍数
+
+                    行间距 = 行高 - 字体大小
+                    
+            字体框
+                -字体存在的格子
+
+            行高会在字体框的上下平均分配
+     -->
+    <div>
+        今天天气真不错 hello word!
+    </div>
+</body>
+</html>

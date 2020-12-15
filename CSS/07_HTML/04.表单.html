@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单：
+            -在现实生活表单用于提交数据
+            -在网页中也可以使用表单，网页中的表单将本地的数据提交给服务器
+            -使用form标签来创建表单
+     -->
+     <!-- 
+         form的属性
+            action 表单要提交的服务器的地址
+      -->
+      <form action="target.html" method="get">
+          <!-- 文本框 -
+                    数据要提交到服务器中，剥削为样式指定一个name属性值
+          -->
+          文本框：<input type="text" name="a">
+          <br><br>
+          <!-- 密码框 -->
+          密码框：<input type="password" name="b">
+          <br><br>
+          <!-- 单选按钮 
+                    -像这种选择框，必须要指定一个value属性，value属性最终会为用户填写的值提交给服务器
+                    -checked 可以将单选按钮设置为默认选中
+          -->单选按钮：
+          <input type="radio" name="c" value="男" checked>
+          <input type="radio" name="c" value="女">
+          <!-- 
+              多选框
+           -->
+           <br><br>多选按钮：
+          <input type="checkbox" name="d" value="1">
+          <input type="checkbox" name="e" value="2" checked>
+          <input type="checkbox" name="f" value="3">
+          <br><br>
+          <!--  下拉列表-->
+          <select name="chose" id="">
+              <option value="i">选项一</option>
+              <option selected value="ii">选项二</option>
+              <option value="iii">选项三</option>
+          </select>
+          <input type="submit" value="注册">
+      </form>
+</body>
+</html>

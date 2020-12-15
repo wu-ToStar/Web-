@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            子选择器
+                语法： 父元素>子元素
+        */
+        /* div>span{
+            color: red;
+        } */
+        /* 
+            后代选择器
+                语法： 祖先 后代
+        */
+        /* div span{
+            color: red;
+        } */
+        /* 
+            兄弟选择器
+                语法： 兄 +(下一个标签)或~(下面全部标签) 弟
+        */
+        /* p + span{
+            color: red;
+        } */
+        /* p~span{
+            color: red;
+        } */
+        /* p,span{
+            color: red;
+        } */
+    </style>
+</head>
+<body>
+    <div>
+        我是一个div
+        <p>
+            我是div中的p元素
+            <span>我是p元素中的span</span>
+        </p>
+        <span>我是div中的span元素</span>
+        <span>我是div中的span元素</span>
+        <span>我是div中的span元素</span>
+        <span>我是div中的span元素</span>
+        <span>我是div中的span元素</span>
+    </div>
+    <span>我是一个span</span>
+</body>
+</html>

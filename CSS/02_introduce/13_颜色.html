@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            RGB值：
+                -通过三种颜色的浓度来调配出不同的颜色
+                -R red G green B blue
+                -每一种颜色的范围在0-255（0%-100%）之间
+                -语法：RGB（红色，绿色，蓝色）
+
+            RGBA
+                -在RGB基础上加了一个a表示浓度
+                -需要四个值
+                    1表示不透明，0表示透明，.5表示半透明
+            
+            十六进制的RGB
+                -语法，#红色绿色蓝色
+                -颜色浓度00-ff
+
+
+            HSL值 HSLA值
+                -h 色相 0-360
+                -s 饱和度 颜色的浓度  0%-100%
+                -l 亮度 颜色的亮度 0%-100%
+                -a 透明度 0-1
+        */
+        *{
+            background-color: red;
+            background-color: rgb(255,0,0);
+            background-color: rgb(0,255,0);
+            background-color: rgb(0, 0, 255);
+            background-color: rgb(255, 255, 255);
+            background-color: rgba(100, 100, 100, .5);
+            background-color: #ff0000;
+            background-color: #ff0;
+            background-color: hsl(90, 100%, 90%);
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

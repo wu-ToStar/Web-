@@ -1,0 +1,30 @@
+{
+  "id": "2156040",
+  "name": "iconfont",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7865396",
+      "name": "饼干",
+      "font_class": "food-cookie",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7865400",
+      "name": "草莓",
+      "font_class": "food-strawberry",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "7865409",
+      "name": "蛋黄酥",
+      "font_class": "food-eggyolkcake",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

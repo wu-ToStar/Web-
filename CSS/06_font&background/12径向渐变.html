@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            float: left;
+            width: 200px;
+            height: 300px;
+            background-image: radial-gradient(circle, red,yellow);
+            /* 
+                radial-gradient() 径向渐变（放射性渐变）
+                    正方形 --> 圆形
+                    正方形 --> 椭圆形
+
+                    -我们也可以手动指定径向渐变的大小
+                    circle 圆
+                    ellipse 椭圆
+             */
+        }
+        .box2{
+            margin-top: 100px;
+
+            float: right;
+            width: 200px;
+            height: 200px;
+            background-image: repeating-radial-gradient(10px 10px at 0 0, red,yellow);
+            background-image: radial-gradient(farthest-corner at 0 0 ,red,yellow);
+            /* 
+                radial-gradient(大小 at 位置，颜色 位置，颜色 位置。。。)
+
+                    大小：
+                        100px
+                        circle
+                        ellipse
+                        closest-side 近边
+                        closest-corner 近角
+                        farthest-side 远边
+                        farthest-corner 远角
+
+                    位置：
+                        top rignt bottom left
+             */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

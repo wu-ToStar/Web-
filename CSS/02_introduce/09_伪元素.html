@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 伪元素，表示页面中一些并不存在的元素(特殊的位置)
+                伪元素使用:: 开头
+
+            ::first-letter 表示第一个字母
+            ::first-line 表示第一行
+            ::selection 表示选中的内容
+            ::before 元素的开始
+            ::after 元素的最后
+                before 和 after 必须结合content属性使用
+        */
+        p::first-letter{
+            font-size: 30px;
+            color: blue;
+        }
+        p::first-line{
+            background-color: chartreuse;
+        }
+        p::selection{
+            background-color: khaki;
+        }
+        div::before{
+            content: "css";
+            color: lavender;
+        }
+        div::after{
+            content: "html";
+            color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <!-- <q>hi</q> -->
+    <div>你好！</div>
+    <p>
+        Artificial Intelligence Computing Leadership from NVIDIA: inventor of the GPU, which creates interactive graphics on laptops, workstations, mobile devices, notebooks, PCs, and more.
+        Artificial Intelligence Computing Leadership from NVIDIA: inventor of the GPU, which creates interactive graphics on laptops, workstations, mobile devices, notebooks, PCs, and more.
+        Artificial Intelligence Computing Leadership from NVIDIA: inventor of the GPU, which creates interactive graphics on laptops, workstations, mobile devices, notebooks, PCs, and more.
+    </p>
+</body>
+</html>

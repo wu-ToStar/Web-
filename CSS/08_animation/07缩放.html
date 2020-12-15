@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: 2s;
+            margin: 200px auto;
+            /* 变形的原点 默认值 center
+                    可选值：
+                        px
+                        left center....
+            */
+            transform-origin: left;
+        }
+        .box1:hover{
+            /* 
+                对元素进行缩放的函数
+                    scaleX 水平方向缩放
+                    scaleY 垂直方向缩放
+                    scaleZ 双方向缩放
+            */
+            transform: scale(1.5);
+        }
+        .image{
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        img{
+            width: 200px;
+            height: 300px;
+            transition: all 2s;
+        }
+        img:hover{
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+    <div class="image">
+        <img src="https://tse3-mm.cn.bing.net/th/id/OIP.nogKOHsRyaFjLTMHPxIGhgHaK9?w=182&h=270&c=7&o=5&dpr=1.25&pid=1.7" alt="">
+    </div>
+    
+</body>
+</html>

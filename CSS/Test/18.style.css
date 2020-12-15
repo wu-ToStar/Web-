@@ -1,0 +1,135 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.top-bar-wapper {
+  background-color: black;
+}
+.top-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 48px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+.left-menu:hover .nav {
+  display: block;
+}
+.left-menu .nav {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  padding-top: 60px;
+}
+.left-menu .nav li {
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #2e2929;
+}
+.left-menu .nav li a {
+  display: block;
+  line-height: 44px;
+  font-size: 14px;
+}
+.left-menu .nav li:last-child a {
+  display: inline-block;
+  margin-right: 10px;
+}
+.left-menu .nav li span {
+  color: white;
+  font-size: 14px;
+}
+.left-menu .menu-icon {
+  width: 18px;
+  height: 48px;
+  position: relative;
+}
+.left-menu .menu-icon li {
+  width: 18px;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  transform-origin: left center;
+}
+.left-menu .menu-icon li:nth-child(1) {
+  top: 18px;
+}
+.left-menu .menu-icon li:nth-child(2) {
+  top: 24px;
+}
+.left-menu .menu-icon li:nth-child(3) {
+  top: 30px;
+}
+.left-menu .menu-icon:hover li:nth-child(1) {
+  top: 18px;
+  transform: rotateZ(41deg);
+}
+.left-menu .menu-icon:hover li:nth-child(2) {
+  top: 24px;
+  opacity: 0;
+}
+.left-menu .menu-icon:hover li:nth-child(3) {
+  top: 30px;
+  transform: rotateZ(-41deg);
+}
+.logo a {
+  text-indent: -999px;
+  display: block;
+  width: 122px;
+  height: 32px;
+  background-image: url("https://img.app.meitudata.com/corp-new/image/logo-white.@f94af395.png");
+  background-size: 100px 30px;
+  background-repeat: no-repeat;
+}
+@media only screen {
+}
+@media only screen and (min-width: 768px) {
+  .left-menu {
+    order: 2;
+    flex: auto;
+  }
+  .left-menu:hover .nav {
+    display: flex;
+  }
+  .left-menu .nav {
+    display: flex;
+    position: static;
+    justify-content: space-around;
+    padding: 0px;
+  }
+  .left-menu .nav li {
+    width: 40%;
+    border-bottom: none;
+    margin: 0;
+  }
+  .left-menu .nav li a {
+    line-height: 48px;
+  }
+  .left-menu .nav li span {
+    display: none;
+  }
+  .left-menu .menu-icon {
+    display: none;
+  }
+  .logo {
+    order: 1;
+  }
+  .user-info {
+    order: 3;
+  }
+}
+/*# sourceMappingURL=./18.style.css.map */

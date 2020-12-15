@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+//外部容器
+.top-bar-wapper{
+    background-color: black;
+}
+.top-bar{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 48px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+}
+// 设置左侧导航栏
+.left-menu{
+    //显示隐藏的菜单
+    &:hover{
+        .nav{
+            display: block;
+        }
+    }
+    //设置菜单
+    .nav{
+        display: none;
+        position: absolute;
+        top: 48px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+        padding-top: 60px;
+        
+        li{
+            width: 80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #2e2929;
+            a{
+                display: block;
+                line-height: 44px;
+                font-size: 14px;
+            }
+            &:last-child a{
+                display: inline-block;
+                margin-right: 10px;
+            }
+            span{
+                color: white;
+                font-size: 14px;
+            }
+        }
+    }
+    //图标
+    .menu-icon{
+        width: 18px;
+        height: 48px;
+        position: relative;
+        //导航的线
+        li{
+            width: 18px;
+            height: 1px;
+            background-color: white;
+            position: absolute;
+            transform-origin: left center;
+
+        }
+        li:nth-child(1){
+            top: 18px;
+        }
+        li:nth-child(2){
+            top: 24px;
+        }
+        li:nth-child(3){
+            top: 30px;
+        }
+        &:hover{
+            li:nth-child(1){
+                top: 18px;
+                //向下旋转
+                transform: rotateZ(41deg);
+            }
+            li:nth-child(2){
+                top: 24px;
+                //隐藏
+                opacity: 0;
+            }
+            li:nth-child(3){
+                top: 30px;
+                transform: rotateZ(-41deg);
+            }
+        }
+    }
+}
+//设置logo
+.logo{
+    a{
+        text-indent: -999px;
+        display: block;
+        width: 122px;
+        height: 32px;
+        background-image: url("https://img.app.meitudata.com/corp-new/image/logo-white.@f94af395.png");
+        background-size: 100px 30px;
+        background-repeat: no-repeat;
+    }
+}
+//设置媒体查询
+@media only screen{
+    //断点
+    @media (min-width: 768px){
+        .left-menu{
+            order:2;
+            flex: auto;
+            //显示菜单
+            &:hover{
+                .nav{
+                    display: flex;
+                }
+            }
+            .nav{
+                display: flex;
+                position: static;
+                justify-content: space-around;
+                padding: 0px;
+                li{
+                    width: 40%;
+                    border-bottom: none;
+                    margin: 0;
+                    a{
+                        line-height: 48px;
+                    }
+                    span{
+                        display: none;
+                    }
+                }
+            }
+            //显示隐藏菜单
+            .menu-icon{
+                display: none;
+            }
+        }
+        .logo{
+            order: 1;
+        }
+        .user-info{
+            order: 3;
+        }
+    }
+}
