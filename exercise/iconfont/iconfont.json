@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10595666",
+      "name": "icon-pause",
+      "font_class": "pause",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
+      "icon_id": "12700306",
+      "name": "icon-stop",
+      "font_class": "icon-stop",
+      "unicode": "e71e",
+      "unicode_decimal": 59166
+    },
+    {
+      "icon_id": "14461267",
+      "name": "diandian",
+      "font_class": "diandian",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: pink;
+        }
+        .box{
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            margin: 200px auto;
+            transform: rotate(45deg) scale(0.85);
+            animation: love 10s infinite;
+            box-shadow: 6px 6px 10px rgba(12, 12, 12, 0.3);
+        }
+        .box::after,
+        .box::before{
+            content: "";
+            background-color: red;
+            width: 120px;
+            height:120px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .box::after{
+            left: -60px;
+        }
+        .box::before{
+            top: -60px;
+        }
+        @keyframes love{
+            0%{
+                transform: rotate(45deg) scale(0.85);
+            }
+            50%{
+                transform: rotate(45deg) scale(1);
+            }
+            100%{
+                transform: rotate(45deg) scale(0.85);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

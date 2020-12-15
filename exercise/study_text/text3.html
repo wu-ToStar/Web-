@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container{
+          height: 800px;
+          border: 2px rgb(31, 132, 214) solid;
+        }
+        .first{
+          background-color: powderblue;
+        }
+        .first p{
+          line-height: 30px;
+        }
+        .first span{
+          color:rgb(31, 132, 214);
+          font-size: 18px;
+        }
+        .classify{
+          height: 50px;
+          line-height: 40px;
+          text-align: center;
+          background-color: steelblue;
+          border: 2px white solid;
+        }
+        .classify p{
+          color: tomato;
+        }
+        .author{
+          border-right: 2px white solid;
+        }
+        .myself{
+          border: 2px white solid;
+          background-color: rgb(199, 192, 192);
+          font-size: 14px;
+        }
+        .myself .photo{
+          width: 150px;
+          height: 150px;
+        }
+        .myself h5{
+          font-weight: 800;
+        }
+        .myself ul li{
+          line-height: 26px;
+        }
+        .message{
+          border: 2px white solid;
+          background-color: gainsboro;
+        }
+        .message .time{
+          margin-left: 30px;
+          font-size: 14px;
+          height: 40px;
+          line-height: 40px;
+          color:rgb(31, 132, 214);
+          border-bottom: 2px black solid ;
+        }
+        .message .samemessage p{
+          line-height: 10px;
+        }
+        .message .tablemessage{
+          margin-top: 10px;
+          background-color: blanchedalmond;
+          border: 2px black dotted;
+        }
+        .say{
+          margin-left: 20px;
+          border-bottom: 2px black solid ;
+        }
+        .code{
+          background-color: dimgray;
+        }
+        .footleft{
+          border: 2px white solid;
+          background-color: darkgray;
+        }
+        .footright{
+          border: 2px white solid;
+          background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-around first">
+          <div class="col-5 col-md-auto">
+            <p><strong>锁定老帖子<span>主题：在存储过程中获取当前用户信息</span> </strong></p>
+          </div>
+          <div class="col-4 col-md-auto">
+            <p>精华帖(0) :: 良好帖(0) :: 新手帖(0) :: 隐藏帖(0)</p>
+          </div>
+        </div>
+        <div class="row classify">
+          <div class="col-2 author">
+            <p>作者</p>
+          </div>
+          <div class="col-10">
+            <p>正文</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 myself">
+            <h5>苏哈里的时间</h5>
+            <ul class="list-unstyled">
+              <li>等级:初级会员</li>
+              <li><img src="images/eye.jpg" class="photo"></li>
+              <li>性别:男</li>
+              <li>文章:2</li>
+              <li>积分:50</li>
+              <li>来自:上海</li>
+            </ul>
+          </div>
+          <div class="col-10 message">
+            <div class="row">
+              <div class="col-11 time">
+                <p>发表时间：2019-08-26</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8 samemessage" >
+                <h5>Android</h5>
+                <p>1.使用longin_user函数</p>
+                <p>2.查询v$session表</p>
+                <p>&nbsp;</p>
+                <p>sql>connect/as sysdba</p>
+                <p>sql>grant select on v_$session to &user_name;</p>
+                <p>其实这个地方你只需要用</p>
+                <p>sql>select user to xxx from dual即可</p>
+                <p>user函数返回当前连接的用户。</p>
+                <p>&nbsp;</p>
+                <p>可以使用sys_context获取当前登录用户的各种信息</p>
+              </div>
+              <div class="col-4 tablemessage" >
+                <h4>相关推荐</h4>
+                <ul>
+                  <li><ins><abbr title="Oracle--学习笔记">Oracle--学习笔记</abbr></ins></li>
+                  <li><ins><abbr title="【总结】Oracle恢复误删除数据，解除锁定的SQL语句">【总结】Oracle恢复误删除数据，解除锁定的SQL语句</abbr></ins></li>
+                  <li><ins><abbr title="PLsql(语法--异常处理--游标--存储过程--触发器--Oracle分页)">PLsql(语法--异常处理--游标--存储过程--触发器--Oracle分页)</abbr></ins></li>
+                  <li><ins>Oracle--学习笔记</ins></li>
+                  <li><ins>Android ViewPage在Activity中获取到当前正在执行的Fragment</ins></li>
+                  <li><ins>Android快速获得当前所在地理位置（简单定位）</ins></li>
+                  <li><ins>Android获取手机存储空间</ins></li>
+                  <li><ins>Android获取当前地理位置经纬度坐标 基于Androidstudio开发</ins></li>
+                  <li><ins>Android使用百度地图定位（获取当前经纬度和地址信息）</ins></li>
+                </ul>
+                <p>推荐群组：<a href="#">JAVA 3T</a></p>
+                <p><a href="#">更多相关推荐</a></p>
+              </div>
+              <div class="col-12 code"> 
+                <pre >
+declare
+v_session_user varchar2(200);
+v_session_user_id varchar2(20);
+os_user varchar2(20);
+v_ip_address varchar2(20);
+begin
+v_session_user := sys_context('USERENV','SESSION_USER');
+v_session_user_id := sys_context('USERENV','SESSION_USERID');
+os_user := sys_context('USERENV','OS_USER');
+v_ip_address := sys_context('USERENV','IP_ADDRESS');
+dbms_output.put_line(v_session_user);
+dbms_output.put_line(v_session_user_id);
+dbms_output.put_line(os_user);
+dbms_output.put_line(v_ip_address);
+end;
+SQL> /
+
+SQL> connect databak/databak@anal
+Connected.
+SQL> @aaa.sql
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on
+SQL> /
+                </pre>
+              </div>
+              <div class="col-6">
+                <p ><a href="#">品牌网站可以帮助企业提高品牌形象</a></p>
+              </div>
+              <div class="col-11 say">
+                <p>声明：ITeye文章版权属于作者，受法律保护。没有作者书面许可不得转载。</p>
+              </div>
+              <div class="col-12">
+                <p>推荐链接</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 footleft">
+            <p>返回顶楼</p>
+          </div>
+          <div class="col-10 footright">
+            <a>主页</a><a>资料</a><a>短信</a><a>留言</a>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

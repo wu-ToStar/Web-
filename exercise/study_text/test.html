@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <style type="text/css">
+        input{width:300px; height:20px;}
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>个人信息</legend>
+        <div style="background-color: rgb(241, 243, 243); position: relative;">
+            <form action="" method="GET" >
+                <table width="800px;" height="600px;">
+                    <tr>
+                        <td>姓名:</td>
+                        <td colspan="2"><input type="text" placeholder="请输入您的姓名"></td>
+                    </tr>
+                    <tr>
+                        <td>性别:</td>
+                        <td>
+                            <input style="width:80px;height:14px;" type="radio" name="gender" value="0" checked>女
+                            <input style="width:80px;height:14px;" type="radio" name="gender" value="1" >男
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>出生年月:</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>参加工作时间:</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>户口所在地:</td>
+                        <td>
+                            <select name="" id="">
+                                <option>&emsp;江西-赣州</option>
+                                <option>&emsp;江西-南昌</option>
+                                <option>&emsp;江西-九江</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>现居住城市:</td>
+                        <td>
+                            <select name="" id="">
+                                <option>&emsp;江西-赣州</option>
+                                <option>&emsp;江西-南昌</option>
+                                <option>&emsp;江西-九江</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>政治面貌:</td>
+                        <td colspan="2"><input type="text" placeholder="请选择政治面貌，用于投递简历（选填）"></td>
+                    </tr>
+                    <tr>
+                        <td>联系方式:</td>
+                        <td colspan="2">1234*****90
+                        <a style="color: rgb(93, 93, 238);text-decoration:none;" href="#" >&emsp;&emsp;修改 &emsp;&emsp;<span style="color: gray;">用于找回账号和密码</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>电子邮箱:</td>
+                        <td colspan="2"><input type="email" placeholder="1234*****90@qq.com"><br>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" style="width:80px; height:30px;"></td>
+                    </tr>
+                </table>
+                <div style="width: 400px;height: 300px; position: absolute;left: 900px;top:50px;">
+                    <div style="width: 200px;height: 200px; position: absolute; left: 150px;" >
+                        <img src="images/xiaomao-005.jpg" >
+                    </div>
+                    <div style="position: absolute;left: 40px;top:120px;">
+                        <a style="text-decoration:none;" href="####">选择文件</a>
+                        <!-- <input type="file" webkitdirectory directory multiple/> -->
+                    </div>
+                    <div style="position: absolute;left: 100px;top:220px;color: gray;">
+                        只支持JPG格式大小不要超过500k<br>
+                        建议使用一寸证件照70*100像素
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</body>
+</html>

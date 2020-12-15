@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid bg-success">
+        <div class="container">
+          <h1 class="display-4 text-white">喜茶</h1>
+          <p class="lead">
+            <a class="btn btn-danger btn-sm rounded-pill" href="#" role="button">线上点单平台</a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-6">
+            <div class="row ml-5">
+                <div class="col-6">
+                    <p>选择饮品</p>
+                    <div class="dropdown">
+                        <button class="btn border border-drak dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          红茶&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">红茶</a>
+                          <a class="dropdown-item" href="#">柠檬茶</a>
+                          <a class="dropdown-item" href="#">绿茶</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col">
+                    <p>规格</p>
+                    <div class="dropdown">
+                        <button class="btn border border-drak dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          中杯&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">小杯</a>
+                          <a class="dropdown-item" href="#">大杯</a>
+                          <a class="dropdown-item" href="#">中杯</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="btn-group mt-4" data-toggle="buttons">
+                <label class="btn mx-5 active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked>常温
+                </label>
+                <label class="btn mx-5">
+                  <input type="radio" name="options" id="option2" autocomplete="off">热
+                </label>
+                <label class="btn mx-5">
+                  <input type="radio" name="options" id="option3" autocomplete="off">加冰
+                </label>
+              </div>
+              <div class="row ml-5">
+                <button type="button" class="btn btn-outline-danger mx-5 col-1">糖</button>
+                <button type="button" class="btn btn-outline-danger mx-5 col-1">半糖</button>
+                <button type="button" class="btn btn-outline-danger mx-5 col-1">少糖</button>
+                <button type="button" class="btn btn-outline-danger mx-5 col-1">无糖</button>
+              </div>
+              <div class="row ml-5 my-3">
+                <button type="button" class="btn btn-outline-secondary  mx-3 col-2">牛奶</button>
+                <button type="button" class="btn btn-outline-danger  mx-3 col-2">红豆</button>
+                <button type="button" class="btn btn-outline-primary mx-3 col-2">珍珠</button>
+                <button type="button" class="btn btn-outline-success mx-3 col-2">抹茶</button>
+              </div>
+              <button type="button" class="btn btn-danger btn-lg btn-block mt-3 ml-4">下单</button>
+          </div>
+          <div class="col">
+            <div class="col border border-drak">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">饮品</th>
+                        <th scope="col">规格</th>
+                        <th scope="col">糖</th>
+                        <th scope="col">温度</th>
+                        <th scope="col">辅料</th>
+                        <th scope="col">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">红茶</th>
+                        <td>大杯</td>
+                        <td>半糖</td>
+                        <td>热</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm rounded-pill">红豆</button>
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill">牛奶</button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-pill">布丁</button>
+                        </td>
+                        <td class="row">
+                            <button type="button" class="btn btn-primary col-12">出货</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">红茶</th>
+                        <td>大杯</td>
+                        <td>半糖</td>
+                        <td>热</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm rounded-pill">红豆</button>
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill">牛奶</button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-pill">布丁</button>
+                        </td>
+                        <td class="row">
+                            <button type="button" class="btn btn-primary col-12">出货</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">红茶</th>
+                        <td>大杯</td>
+                        <td>半糖</td>
+                        <td>热</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm rounded-pill">红豆</button>
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill">牛奶</button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-pill">布丁</button>
+                        </td>
+                        <td class="row">
+                            <button type="button" class="btn btn-primary col-12">出货</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">红茶</th>
+                        <td>大杯</td>
+                        <td>半糖</td>
+                        <td>热</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm rounded-pill">红豆</button>
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill">牛奶</button>
+                            <button type="button" class="btn btn-primary btn-sm rounded-pill">布丁</button>
+                        </td>
+                        <td class="row">
+                            <button type="button" class="btn btn-primary col-12">出货</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+      </div>
+      <script src="js/jquery.slim.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
