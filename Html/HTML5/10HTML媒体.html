@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+  </head>
+
+  <body>
+    <!-- 使用 <embed> 标签
+        <embed> 标签的作用是在 HTML 页面中嵌入多媒体元素。
+        
+        下面的 HTML 代码显示嵌入网页的 Flash 视频：
+        
+        实例 -->
+
+    <embed src="movie.swf" height="200" width="200" />
+
+    <!-- 使用 <object> 标签
+        <object> 标签的作用是在 HTML 页面中嵌入多媒体元素。
+        
+        下面的 HTML 片段显示嵌入网页的一段 Flash 视频：
+        
+        实例 -->
+    <object data="movie.swf" height="200" width="200" />
+    
+    <!-- 雅虎媒体播放器 -->
+    <!-- <a href="../HTML/video/music.mp4">Play Song 1</a>
+    <script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script> -->
+
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="640"
+      height="264"
+      poster="./image/在线图片1.png"
+      data-setup="{}"
+    >
+      <source src="../HTML/video/music.mp4" type="video/mp4" />
+      <source src="movie.ogg" type="video/ogg" />
+      <source src="movie.webm" type="video/webm" />
+      <object data="movie.mp4" width="320" height="240">
+        <embed src="movie.swf" width="320" height="240" />
+      </object>
+    </video>
+
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+  </body>
+</html>

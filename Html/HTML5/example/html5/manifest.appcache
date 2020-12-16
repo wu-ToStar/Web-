@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# 2012-02-21 v1.0.0
+../../06在线的css.css
+../../image/在线图片1.png
+
+NETWORK:
+*
+
+FALLBACK:
+/06应用程序缓存.html /offline.html

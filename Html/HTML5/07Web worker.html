@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        什么是 Web Worker？
+
+        当在 HTML 页面中执行脚本时，页面是不可响应的，直到脚本已完成。
+
+        Web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。
+        您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 运行在后台。
+     -->
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+    <br /><br />
+
+    <script>
+        var w;
+
+        function startWorker() {
+            if (typeof (Worker) !== "undefined") {
+                if (typeof (w) == "undefined") {
+                    w = new Worker("07demo_workers.js");
+                }
+                //当 web worker 传送消息时，会执行事件监听器中的代码。
+                //来自 web worker 的数据会存储于 event.data 中
+                w.onmessage = function (event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Sorry! No Web Worker support.";
+            }
+        }
+
+        function stopWorker() {
+            //终止 web worker，并释放浏览器/计算机资源，请使用 terminate() 方法：
+            w.terminate();
+            //如果您把 worker 变量设置为 undefined，在其被终止后，可以重复使用该代码：
+            w = undefined;
+        }
+    </script>
+</body>
+
+</html>

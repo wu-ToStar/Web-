@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- 
+          什么是 HTML 本地存储？
+            通过本地存储（Local Storage），web 应用程序能够在用户浏览器中对数据进行本地的存储。
+
+            在 HTML5 之前，应用程序数据只能存储在 cookie 中，包括每个服务器请求。本地存储则更安全，并且可在不影响网站性能的前提下将大量数据存储于本地。
+
+            与 cookie 不同，存储限制要大得多（至少5MB），并且信息不会被传输到服务器。
+
+            本地存储经由起源地（origin）（经由域和协议）。所有页面，从起源地，能够存储和访问相同的数据。
+       -->
+    <h1>HTML 本地存储：优于 cookies</h1>
+    <script>
+        function clickCounter() {
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("result").innerHTML = "您已经点击这个按钮 " + localStorage.clickcount + " 次。";
+            } else {
+                document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+            }
+        }
+    </script>
+    </head>
+
+    <body>
+        <p><button onclick="clickCounter()" type="button">请点击这里！</button></p>
+        <div id="result"></div>
+        <p>请点击按钮使计数器递增。</p>
+        <p>请关闭浏览器或标签页，然后再试一次，计数器将继续计数（不会重置）。</p>
+        <!-- 
+        HTML 本地存储提供了两个在客户端存储数据的对象：
+
+        window.localStorage - 存储没有截止日期的数据
+        window.sessionStorage - 针对一个 session 来存储数据（当关闭浏览器标签页时数据会丢失）
+     -->
+    </body>
+
+</html>

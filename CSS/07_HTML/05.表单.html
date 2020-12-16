@@ -11,10 +11,12 @@
         readonly 将表单设置为禁用，数据会提交
         disabled 将表单设置为禁用，数据不会提交
         autofocus 设置表单自动获取焦点
+        required 文本框一定要有内容
+        pattern  自定义正则表达式
      -->
     <form action="target.html" method="get">
         文本框：<input type="text" name="username" value="hello" readonly>
-        密码框：<input type="text" name="password" autofocus>
+        密码框：<input type="text" name="password" autofocus required>
         不做处理：<input type="text" name="a">
         <br><br>
         颜色：<input type="color" name="b">
@@ -30,6 +32,7 @@
         <button type="submit" >提交</button>
         <button type="reset">重置</button>
         <button type="button">按钮</button>
+        
     </form>
 </body>
 </html>

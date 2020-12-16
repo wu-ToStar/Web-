@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>菜鸟教程(runoob.com)</title>
+    <style type="text/css">
+        #div1 {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        //调用 preventDefault() 来阻止数据的浏览器默认处理方式（drop 事件的默认行为是以链接形式打开）
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        /**
+         * 拖放的内容 - ondragstart 和 setData()
+          然后，规定当元素被拖动时发生的事情。
+
+          在上面的例子中，ondragstart 属性调用了一个 drag(event) 函数，规定拖动什么数据。
+
+          dataTransfer.setData() 方法设置被拖动数据的数据类型和值：
+         */
+        function drag(ev) {
+            //在本例中，数据类型是 "text"，而值是这个可拖动元素的 id ("drag1")。
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+        /*
+        进行放置 - ondrop
+        当放开被拖数据时，会发生 drop 事件。
+
+        在上面的例子中，ondrop 属性调用了一个函数，drop(event)：
+        */
+        function drop(ev) {
+            //调用 preventDefault() 来阻止数据的浏览器默认处理方式
+            ev.preventDefault();
+            //通过 dataTransfer.getData() 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据
+            //被拖数据是被拖元素的 id ("drag1")
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+
+<body>
+    <p>拖动 RUNOOB.COM 图片到矩形框中:</p>
+    <!-- 
+        拖到何处 - ondragover
+        ondragover 事件规定被拖动的数据能够被放置到何处。
+
+        默认地，数据/元素无法被放置到其他元素中。为了实现拖放，我们必须阻止元素的这种默认的处理方式。
+
+        这个任务由 ondragover 事件的 event.preventDefault() 方法完成：
+     -->
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br />
+    <!-- 
+        把元素设置为可拖放
+        首先：为了把一个元素设置为可拖放，请把 draggable 属性设置为 true：
+     -->
+    <img id="drag1" src="/images/logo.png" draggable="true" ondragstart="drag(event)" width="336" height="69" />
+</body>
+
+</html>
