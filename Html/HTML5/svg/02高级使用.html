@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 1500px;
+      }
+
+      #miqi {
+        fill: orange;
+        transition: all 2s;
+      }
+
+      #miqi:hover {
+        fill: deepskyblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <svg width="1100px" height="600px">
+      <circle id="mycircle" cx="50" cy="50" r="50"></circle>
+      <!-- <use>标签用于复制一个形状 -->
+      <use href="#mycircle" x="10" y="0" fill="blue"></use>
+      <use href="#mycircle" x="20" y="0" fill="white"></use>
+      <!-- <defs>标签用于自定义形状，它的内部代码不会显示，仅供引用 -->
+      <defs>
+        <!-- <g>标签用于将多个选择组成一个组  引用g的内容其子也会继承父的样式，-->
+        <g id="miqi">
+          <circle cx="100" cy="100" r="50"></circle>
+          <circle cx="500" cy="100" r="50"></circle>
+          <circle cx="300" cy="400" r="200"></circle>
+        </g>
+      </defs>
+      <use href="#miqi" x="500" y="0"></use>
+    </svg>
+    <svg width="1000" height="500">
+      <defs>
+        <!-- 
+              <pattern>标签将一个圆定义成为dots模式，patternUnits数值为实际像素比,
+           -->
+        <pattern
+          id="dots"
+          x="0"
+          y="0"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle fill="#bfa" cx="50" cy="50" r="35"></circle>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" height="100%" fill="url(#dots)">
+          <animate attributeName="x" from="0" to="600" dur="100s" repeatCount="indefinite"></animate>
+            <animateTransform attributeName="transform" type="scale" begin="0s" dur="1s" from="1" to="0.5" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <!-- 指定这个模式去填充 -->
+      <!-- <image xlink:href="" width="50%" height="505">
+                容易失帧
+            </image>
+       -->
+    </svg>
+  </body>
+</html>
