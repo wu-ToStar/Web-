@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <svg width="1800px" height="800px">
+      <g id="zuobiao">
+        <!-- x轴 -->
+        <line
+          class="axis"
+          x1="50"
+          y1="600"
+          x2="950"
+          y2="600"
+          stroke-width="1px"
+          stroke="red"
+        ></line>
+        <path d="M 915,590 950,600 915,610"></path>
+        <text x="920" y="630">时间</text>
+        <!-- y轴 -->
+        <line
+          class="axis"
+          x1="100"
+          y1="50"
+          x2="100"
+          y2="650"
+          stroke-width="1px"
+          stroke="red"
+        ></line>
+        <path d="M 90,85 100,50 110,85"></path>
+        <text x="50" y="100">订单</text>
+      </g>
+      <g id="xkedu"></g>
+      <g id="ykedu"></g>
+      <g id="barList">
+        <rect x="" y="" width="50" height=""></rect>
+      </g>
+    </svg>
+    <script>
+      var data = [
+        { time: "星期一", data: "1000" },
+        { time: "星期二", data: "900" },
+        { time: "星期三", data: "800" },
+        { time: "星期四", data: "700" },
+        { time: "星期五", data: "600" },
+        { time: "星期六", data: "500" },
+        { time: "星期七", data: "400" },
+      ];
+      var xkedu = document.querySelector("#xkedu");
+      var ykedu = document.querySelector("#ykedu");
+      var barList = document.querySelector("#barList");
+      var xLength = 800 / data.length;
+      var yLength = 600 / 12;
+      for (let i = 1; i <= data.length; i++) {
+        xkedu.innerHTML =
+          xkedu.innerHTML +
+          `<line class="axis" y1="600" x1="${100 + xLength * i}" y2="580" x2="${
+            100 + xLength * i
+          }" stroke-width="1px"
+          stroke="black">
+          
+          </line>` +
+          `<text x="${80 + xLength * i}" y="650">${data[i - 1].time}</text>`;
+        // renderKedu(i);
+        var color = `rgb(${parseInt(Math.random() * 255)},${parseInt(
+          Math.random() * 255
+        )},${parseInt(Math.random() * 255)})`;
+        barList.innerHTML =
+          barList.innerHTML +
+          `<rect x="${75 + xLength * i}" y="${
+            600-(yLength * data[i - 1].data) / 100
+          }" width="50" height="${
+            (yLength * data[i - 1].data) / 100
+          }" fill="${color}"></rect> `;
+      }
+      for (let j = 1; j <= 10; j++) {
+        ykedu.innerHTML =
+          ykedu.innerHTML +
+          `<line class="axis" x1="100" y1="${600 - yLength * j}" x2="120" y2="${
+            600 - yLength * j
+          }" stroke-width="1px"
+          stroke="black">
+          
+          </line>` +
+          `
+          <text x="100" y="${600 - yLength * j}" x="80"">
+            ${100 * j}
+          </text>
+          `;
+      }
+      //   function renderKedu(index) {
+      //     var lineDom = document.createElement("line");
+      //     lineDom.className = "axis";
+      //     lineDom.setAttribute("x1", 100 + xLength * index);
+      //     lineDom.setAttribute("y1", "600");
+      //     lineDom.setAttribute("x2", 100 + xLength * index);
+      //     lineDom.setAttribute("y2", "580");
+      //     lineDom.setAttribute("stroke-width", "1px");
+      //     lineDom.setAttribute("stroke", "black");
+      //   }
+    </script>
+  </body>
+</html>
