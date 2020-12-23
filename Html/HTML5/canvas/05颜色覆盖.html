@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block">
+        <script type="text/javascript">
+            window.onload = function () {
+                var canvas = document.getElementById("canvas");
+
+                canvas.width = 1024;
+                canvas.height = 768;
+
+                var context = canvas.getContext("2d");
+
+                drawRect(context, 100, 100, 400, 400, 2, "#046", "pink");
+                drawRect1(context, 300, 300, 400, 400, 2, "#000", "rgba(255,0,0,0.5)");
+                drawRect2(context, 500, 500, 400, 400, 2, "#abc", "blue");
+            };
+
+            function drawRect(cxt, x, y, width, height, borderWidth, borderColor, fillColor) {
+                cxt.beginPath();
+                cxt.moveTo(x, y);
+                cxt.lineTo(x + width, y);
+                cxt.lineTo(x + width, y + height);
+                cxt.lineTo(x, y + height);
+                cxt.closePath();
+
+                cxt.lineWidth = borderWidth;
+                cxt.fillStyle = fillColor;
+                cxt.strokeStyle = borderColor;
+
+                cxt.fill();
+                cxt.stroke();
+            }
+
+            function drawRect1(cxt, x, y, width, height, borderWidth, borderColor, fillColor) {
+                cxt.beginPath();
+                cxt.rect(x, y, width, height); //设置大小
+                cxt.closePath();
+
+                cxt.lineWidth = borderWidth;
+                cxt.fillStyle = fillColor;
+                cxt.strokeStyle = borderColor;
+
+                cxt.fill();
+                cxt.stroke();
+            }
+
+            function drawRect2(cxt, x, y, width, height, borderWidth, borderColor, fillColor) {
+                cxt.lineWidth = borderWidth;
+                cxt.fillStyle = fillColor;
+                cxt.strokeStyle = borderColor;
+                cxt.fillRect(x, y, width, height); //设置填充色和大小
+                cxt.strokeRect(x, y, width, height);
+            }
+        </script>
+</body>
+
+</html>

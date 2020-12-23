@@ -1,7 +1,7 @@
 var progessDom = document.querySelector(".progess");
 var textDom = document.querySelector(".text");
 function rotateCircle(persent) {
-    //获取1svg圆形环的总长
+  //获取1svg圆形环的总长
   var circleLength = Math.floor(
     2 * Math.PI * parseFloat(progessDom.getAttribute("r"))
   );

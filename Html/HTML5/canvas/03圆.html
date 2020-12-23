@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block">
+        <script>
+            // centerx,cebtery,radius-->x,y轴坐标和半径
+            // startingAngle,startingAngle-->弧线开始和结束的位置
+            // anticlockwise=false-->弧线的方向,默认是顺时针
+            window.onload = function () {
+                var canvas = document.getElementById("canvas")
+                canvas.width = 1024;
+                canvas.height = 768;
+                var context = canvas.getContext("2d")
+                context.lineWidth = 5;
+                context.strokeStyle = "#005588"
+                // context.fillStyle="#005588"
+                
+                for (var i = 0; i < 10; i++) {
+                    context.beginPath()
+                    context.arc(50 + i * 100, 60, 40, 0, 2 * Math.PI * (i + 1) / 10 )
+                    // context.closePath()
+                    context.stroke()
+                    // context.fill()
+                }
+            }
+        </script>
+</body>
+
+</html>

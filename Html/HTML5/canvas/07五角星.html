@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block">
+    </canvas>
+    <script>
+        window.onload = function () {
+            let canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 800;
+            let context = canvas.getContext("2d");
+            drawStar(context, 150, 300, 400, 400, 10, "#058", 10, "yellow")
+        }
+
+        function drawStar(cxt, r, R, x, y, rot, borderColor, borderWidth, fillColor) {
+            cxt.beginPath();
+            for (var i = 0; i < 5; i++) {
+                cxt.lineTo(Math.cos((18 + i * 72 - rot) / 180 * Math.PI) * R + x,
+                    -Math.sin((18 + i * 72 - rot) / 180 * Math.PI) * R + y)
+                cxt.lineTo(Math.cos((54 + i * 72 - rot) / 180 * Math.PI) * r + x,
+                    -Math.sin((54 + i * 72 - rot) / 180 * Math.PI) * r + y)
+
+            }
+            cxt.closePath();//路径闭合
+            cxt.fillStyle = fillColor;
+            cxt.strokeStyle = borderColor;
+            cxt.lineWidth = borderWidth;
+            cxt.lineJoin="miter"//连接处
+            cxt.miterLimit=10
+            /*
+                miter:默认值
+                bevel:折角
+                round:圆角
+            */ 
+            cxt.fill();//要放在context.stroke()前
+            cxt.stroke();
+        }
+
+    </script>
+</body>
+
+</html>

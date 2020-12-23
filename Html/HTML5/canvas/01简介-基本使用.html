@@ -17,8 +17,27 @@
         canvas.width = 1024;
         canvas.height = 768;
         var context = canvas.getContext("2d");
+        context.beginPath();
+        // 起点
         context.moveTo(100, 100);
+        //点
         context.lineTo(700, 700);
+        context.lineTo(100, 700);
+        context.closePath();
+        //线条宽度
+        context.lineWidth = "5";
+        //描边
+        context.strokeStyle = "#bfa";
+        //填充
+        context.fillStyle = "orange";
+        context.fill();
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(200, 100);
+        context.lineTo(700, 600);
+        context.closePath();
+        context.strokeStyle = "red";
         context.stroke();
       };
     </script>
