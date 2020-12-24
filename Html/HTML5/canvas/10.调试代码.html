@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="border: aqua 1px solid; margin: 50px auto; display: block"
+    >
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        var str = [];
+        for (var i = 0; i < 200; i++) {
+          var r = Math.random() * 10 + 10;
+          var x = Math.max(Math.random() * canvas.width, r);
+          x = Math.min(x, canvas.width - r);
+          var y = Math.max(Math.random() * canvas.height, r);
+          y = Math.min(y, canvas.height - r);
+          var a = Math.random() * 360;
+          str.push([x, y, r]);
+          var flag = true;
+          for (var j = 0; j < str.length; j++) {
+            var jux = Math.abs(x - str[j][0]);
+            var juy = Math.abs(y - str[j][1]);
+            var ju = Math.sqrt(Math.pow(jux, 2) + Math.pow(juy, 2));
+
+            if (ju < r + str[j][2] && ju != 0) {
+              flag = false;
+            }
+          }
+          if (flag) {
+            drawStar(context, x, y, r, a);
+          }
+        }
+      };
+      function drawStar(cxt, x, y, r, a) {
+        cxt.save();
+        // //代替x,y轴的偏移量
+        // cxt.translate(x, y);
+        // //代替a的旋转角度
+        // cxt.rotate((a / 180) * Math.PI);
+        // //代替r,但是要牺牲描边，
+        // cxt.scale(r,r)
+
+        cxt.transform(r,0,0,r,x,y);//综合translate(),rotate(),scale()的属性
+        //cxt.setTransform(r,0,0,r,x,y);//忽略之前的transfrom()变化
+        ////////////////////////////
+        //  a   c   e
+        //  b   d   f
+        //  0   0   0
+        ///////////////////////////
+        //a,d水平,垂直缩放
+        //b,c水平，垂直倾斜
+        //e,f水平，垂直位移
+        //////////////////////////
+        starPath(cxt);
+
+        cxt.fillStyle = "#fb3";
+        // cxt.strokeStyle = "#fff";
+        // cxt.lineWidth = 1;
+        // cxt.lineJoin = "round";
+        cxt.fill()
+        // cxt.stroke()
+        cxt.restore();
+      }
+      function starPath(cxt) {
+        cxt.beginPath();
+        for (var i = 0; i < 5; i++) {
+          cxt.lineTo(
+            Math.cos(((18 + i * 72) / 180) * Math.PI),
+            -Math.sin(((18 + i * 72) / 180) * Math.PI)
+          );
+          cxt.lineTo(
+            Math.cos(((54 + i * 72) / 180) * Math.PI) * 0.5,
+            -Math.sin(((54 + i * 72) / 180) * Math.PI) * 0.5
+          );
+        }
+        cxt.closePath();
+      }
+    </script>
+  </body>
+</html>
