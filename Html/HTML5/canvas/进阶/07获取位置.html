@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas绘图详解 16</title>
+    <style>
+      canvas {
+        border: 1px solid #aaa;
+        display: block;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"
+      >不好意思，您的浏览器不支持canvas。</canvas
+    >
+
+    <script type="text/javascript">
+      var balls = [];
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      window.onload = function () {
+        for (var i = 0; i < 10; i++) {
+          var ball = {
+            x: Math.random() * 800,
+            y: Math.random() * 800,
+            r: Math.random() * 50 + 20,
+          };
+          balls[i] = ball;
+        }
+        draw();
+        canvas.addEventListener("mouseup", detect);
+      };
+
+      function draw() {
+        
+        for (var i = 0; i < balls.length; i++) {
+          ctx.beginPath();
+          ctx.arc(balls[i].x, balls[i].y, balls[i].r, 0, Math.PI * 2);
+
+          ctx.fillStyle = "#058";
+
+          ctx.fill();
+        }
+      }
+
+      function detect(e) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        /*
+          getBoundingClientRect().top与offsetTop有什么区别
+          前者指元素（比如某个div）距离可视区域顶部的距离，后者包括滚动条卷起的部分。
+        */ 
+        var x = e.clientX - canvas.getBoundingClientRect().left;
+        var y = e.clientY - canvas.getBoundingClientRect().top;
+
+        for (var i = 0; i < balls.length; i++) {
+          ctx.beginPath();
+          ctx.arc(balls[i].x, balls[i].y, balls[i].r, 0, Math.PI * 2);
+          //context.isPointInPath(x,y)看传入的点(x,y)是否在当前规划的路径内
+          if (ctx.isPointInPath(x, y)) {
+            ctx.fillStyle = "#ff0000";
+          } else {
+            ctx.fillStyle = "#058";
+          }
+          ctx.fill();
+        }
+      }
+    </script>
+  </body>
+</html>

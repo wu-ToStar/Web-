@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>剪辑区域--demo4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            margin: 50px auto;
+            border: solid 1px grey;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 500;
+        var cxt = canvas.getContext("2d");
+        //填充canvas
+        function drawRect(cxt) {
+            cxt.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        //探照灯,x,y为鼠标相对canvas的坐标
+        function drawArc(cxt, x, y, r) {
+            cxt.clearRect(0, 0, canvas.width, canvas.height);
+            drawRect(cxt);
+            cxt.save();
+            cxt.arc(x, y, r, 0, 2 * Math.PI);
+            cxt.fill();
+            cxt.clip();
+            drawText(cxt);
+            cxt.restore();
+        }
+        //绘制文字
+        function drawText(cxt) {
+            //绘制三行文字
+            cxt.clearRect(0, 0, canvas.width, canvas.height);
+            cxt.beginPath();
+            cxt.textAlign = "center";
+            cxt.textBaseline = "middle";
+            cxt.font = "bold 150px Arial";
+            cxt.fillStyle = "#058";
+            cxt.fillText("CANVAS", canvas.width / 2, canvas.height / 4);
+            cxt.fillText("CANVAS", canvas.width / 2, canvas.height / 2);
+            cxt.fillText("CANVAS", canvas.width / 2, canvas.height * 3 / 4);
+            cxt.restore();
+        }
+        canvas.onmousemove = function (event) {
+            //计算出鼠标相对canvas的位置
+
+            clientX = event.clientX;
+            clientY = event.clientY;
+            curX = clientX - this.offsetLeft;
+            curY = clientY - this.offsetTop;
+            drawArc(cxt, curX, curY, 100);
+        };
+
+        canvas.onmouseout = function () {
+            cxt.clearRect(0, 0, canvas.width, canvas.height);
+            drawRect(cxt);
+        };
+
+        drawRect(cxt);
+    </script>
+</body>
+
+</html>

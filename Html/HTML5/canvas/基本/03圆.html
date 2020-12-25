@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block">
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block"> 
         <script>
             // centerx,cebtery,radius-->x,y轴坐标和半径
             // startingAngle,startingAngle-->弧线开始和结束的位置
@@ -28,6 +28,28 @@
                     // context.closePath()
                     context.stroke()
                     // context.fill()
+                }
+                for (var i = 0; i < 10; i++) {
+                    context.beginPath()
+                    context.arc(50 + i * 100, 180, 40, 0, 2 * Math.PI * (i + 1) / 10 ,true)
+                    // context.closePath()
+                    context.stroke()
+                    // context.fill()
+                }
+                for (var i = 0; i < 10; i++) {
+                    context.beginPath()
+                    context.arc(50 + i * 100, 300, 40, 0, 2 * Math.PI * (i + 1) / 10 )
+                    context.closePath()
+                    context.stroke()
+                    // context.fill()
+                }
+                for (var i = 0; i < 10; i++) {
+                    context.beginPath()
+                    context.arc(50 + i * 100, 420, 40, 0, 2 * Math.PI * (i + 1) / 10 )
+                    // context.closePath()
+                    context.fillStyle="#005588"
+                    context.stroke()
+                    context.fill()
                 }
             }
         </script>

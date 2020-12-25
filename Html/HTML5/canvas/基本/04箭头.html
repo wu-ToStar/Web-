@@ -17,6 +17,8 @@
       canvas.height = 768;
       let context = canvas.getContext("2d");
 
+      
+
       context.beginPath();
       context.moveTo(100, 350);
       context.lineTo(500, 350);
@@ -32,6 +34,11 @@
       context.fillStyle = "yellow";
       context.strokeStyle = "#058";
 
+      context.shadowColor="gray"
+      context.shadowOffsetX=20;
+      context.shadowOffsetY=20;
+      context.shadowBlur=20
+      
       context.fill();//要放在context.stroke()前
       context.stroke();
     </script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+
+            canvas.width = 800;
+            canvas.height = 768;
+
+            var context = canvas.getContext("2d");
+            context.font="xx-small bold Arial"
+            context.fillStyle="#058"
+            context.fillText("欢迎大家学习《Canvas绘图接口详解》！",40,100)
+
+            context.font="xx-large bold Arial"
+            context.strokeStyle="#058"
+            context.lineWidth=1
+            context.strokeText("欢迎大家学习《Canvas绘图接口详解》！",40,200)
+
+            context.strokeStyle="#058"
+            context.lineWidth=1;
+            context.fillText("欢迎大家学习《Canvas绘图接口详解》！",40,300,300)
+            context.strokeText("欢迎大家学习《Canvas绘图接口详解》！",40,400,300)
+
+            //渐变线的角度
+            var linearGrad = context.createLinearGradient(0, 0, 800, 400);
+            //渐变过渡的颜色
+            linearGrad.addColorStop(0.0, "red");
+            linearGrad.addColorStop(0.25, "orange");
+            linearGrad.addColorStop(0.5, "yellow");
+            linearGrad.addColorStop(0.75, "green");
+            linearGrad.addColorStop(1, "purple");
+            context.fillStyle = linearGrad;
+            //渐变区域大小
+            context.fillText("欢迎大家学习《Canvas绘图接口详解》！",40,500);
+
+            var backgroundImage=new Image()
+            backgroundImage.src="../image/wall.jpg"
+            backgroundImage.onload=function(){
+                var pattern=context.createPattern(backgroundImage,"repeat")
+                context.fillStyle=pattern
+                context.font="bold 100px Arial"
+                context.fillText("Canvas绘图！",40,600)
+                context.strokeText("Canvas绘图！",40,600)
+            }
+            
+        };
+    </script>
+</body>
+
+</html>

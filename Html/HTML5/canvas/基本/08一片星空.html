@@ -15,34 +15,54 @@
     <script>
       window.onload = function () {
         let canvas = document.getElementById("canvas");
-        canvas.width = 800;
+        canvas.width = 1200;
         canvas.height = 800;
         let context = canvas.getContext("2d");
-        context.fillStyle = "black";
+
+        // var skyStry = context.createLinearGradient(0, 0, 0, canvas.height);
+        var skyStry = context.createRadialGradient(
+          canvas.width / 2,
+          canvas.height / 1.25,
+          200,
+          canvas.width / 2,
+          canvas.height / 1.25,
+          canvas.height
+        );
+        //渐变过渡的颜色
+        skyStry.addColorStop(0, "#035");
+        skyStry.addColorStop(1, "black");
+
+        context.fillStyle = skyStry;
         context.fillRect(0, 0, canvas.width, canvas.height);
-        var str=[];
+
+        //让星星不会重叠
+        var str = [];
         for (var i = 0; i < 200; i++) {
-          var r = Math.random() * 10 + 10;
+          //星星在画布里
+          var r = Math.random() * 5 + 6;
           var x = Math.max(Math.random() * canvas.width, r);
           x = Math.min(x, canvas.width - r);
-          var y = Math.max(Math.random() * canvas.height, r);
+          var y = Math.max(Math.random() * canvas.height * 0.65, r);
           y = Math.min(y, canvas.height - r);
+          //偏转角度
           var a = Math.random() * 360;
-          str.push([x,y,r])
-          var flag=true;
-          for(var j=0;j<str.length;j++){
-              var jux=Math.abs(x-str[j][0])
-              var juy=Math.abs(y-str[j][1])
-              var ju=Math.sqrt(Math.pow(jux,2)+Math.pow(juy,2))
-
-              if(ju<(r+str[j][2]) && ju!=0){
-                  flag=false;
-              }
+          str.push([x, y, r]);
+          // console.log(str)
+          var flag = true;
+          for (var j = 0; j < str.length; j++) {
+            var jux = Math.abs(x - str[j][0]);
+            var juy = Math.abs(y - str[j][1]);
+            var ju = Math.sqrt(Math.pow(jux, 2) + Math.pow(juy, 2));
+            //如果小于则不画
+            if (ju < r + str[j][2] && ju != 0) {
+              flag = false;
+              str.pop([j]);
+              // console.log(str)
+            }
           }
-          if(flag){
-              drawStar(context, r, r / 2.0, x, y, a, "#058", 1, "yellow");
+          if (flag) {
+            drawStar(context, r, r / 2.0, x, y, a, "#058", 1, "yellow");
           }
-          
         }
       };
 
@@ -58,7 +78,9 @@
         fillColor
       ) {
         cxt.beginPath();
+        //星星的形状
         for (var i = 0; i < 5; i++) {
+          //星星的距离
           cxt.lineTo(
             Math.cos(((18 + i * 72 - rot) / 180) * Math.PI) * R + x,
             -Math.sin(((18 + i * 72 - rot) / 180) * Math.PI) * R + y
@@ -75,10 +97,10 @@
         cxt.lineJoin = "round"; //连接处
         cxt.miterLimit = 10;
         /*
-                miter:默认值
-                bevel:折角
-                round:圆角
-            */
+              miter:默认值
+              bevel:折角
+              round:圆角
+          */
         cxt.fill(); //要放在context.stroke()前
         cxt.stroke();
       }

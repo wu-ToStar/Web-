@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="border: aqua 1px solid; margin: 50px auto; display: block"
+    >
+    </canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      canvas.width = 1024;
+      canvas.height = 768;
+      let context = canvas.getContext("2d");
+     
+      context.fillStyle = "#058";
+        //阴影颜色
+      context.shadowColor="gray"
+      //阴影的x，y轴
+      context.shadowOffsetX=20;
+      context.shadowOffsetY=20;
+      //模糊度
+      context.shadowBlur=20
+      context.fillRect(200,200,400,400);
+    </script>
+  </body>
+</html>

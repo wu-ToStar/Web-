@@ -16,6 +16,7 @@
             canvas.width=800;
             canvas.height=800;
             var context=canvas.getContext("2d")
+            //保持状态不会影响其他的样式
             context.save()
             context.fillStyle="red"
             context.translate(100,100)

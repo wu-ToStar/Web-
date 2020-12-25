@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+
+            canvas.width = 800;
+            canvas.height = 768;
+
+            var context = canvas.getContext("2d");
+            //渐变线的角度
+            var linearGrad = context.createLinearGradient(0, 0, 400, 400);
+            //渐变过渡的颜色
+            linearGrad.addColorStop(0.0, "#fff");
+            linearGrad.addColorStop(1, "red");
+            context.fillStyle = linearGrad;
+            //渐变区域大小
+            context.fillRect(0, 0, 400, 400);
+
+            //context.createRadialGradient(x0,y0,r0,x1,y1,r1);
+            var radialGrad = context.createRadialGradient(
+                600,//x0	渐变的开始圆的 x 坐标
+                600,//y0	渐变的开始圆的 y 坐标
+                10,//r0	开始圆的半径
+                600,//x1	渐变的结束圆的 x 坐标
+                600,//y1	渐变的结束圆的 y 坐标
+                200//r1	结束圆的半径
+            );
+            //渐变过渡的颜色
+            radialGrad.addColorStop(0.0, "#fff");
+            radialGrad.addColorStop(0.5, "red");
+            radialGrad.addColorStop(1, "pink");
+            context.fillStyle = radialGrad;
+            //渐变区域大小
+            context.fillRect(400, 400, 800, 800);
+        };
+    </script>
+</body>
+
+</html>

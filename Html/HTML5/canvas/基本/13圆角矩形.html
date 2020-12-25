@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="display: block; margin: 50px auto; border: 1px solid #aaa"
+    >
+      <!--显示画布框架-->
+      当前浏览器不支持Canvas，请更换浏览器后再试
+    </canvas>
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 800;
+        canvas.height = 1800;
+        var context = canvas.getContext("2d");
+        arcToTest(context, 250, 100, 650, 100, 650, 600, 200);
+      };
+
+      function arcToTest(cxt, x0, y0, x1, y1, x2, y2, R) {
+        cxt.beginPath();
+
+        cxt.moveTo(x0, y0);
+        /*
+          x1	两切线交点的横坐标。
+          y1	两切线交点的纵坐标。
+          x2	第二条切线上一点的横坐标。
+          y2	第二条切线上一点的纵坐标。
+          r	弧的半径。
+        */ 
+        cxt.arcTo(x1, y1, x2, y2, R);
+        cxt.arcTo(650, 700, 50, 700, R);
+        cxt.arcTo(50, 700, 50, 600, R);
+        cxt.arcTo(50, 100, 150, 100, R);
+        cxt.lineWidth = 6;
+        cxt.strokeStyle = "red";
+        cxt.stroke();
+        cxt.closePath();
+
+        cxt.beginPath();
+        cxt.moveTo(150, 100);
+        cxt.lineTo(650, 100);
+        cxt.lineTo(650, 700);
+        cxt.lineWidth = 1;
+        cxt.strokeStyle = "grey";
+        cxt.stroke();
+        cxt.closePath();
+
+        cxt.beginPath();
+        cxt.moveTo(100, 700);
+        cxt.lineTo(700, 700);
+        cxt.lineWidth = 1;
+        cxt.strokeStyle = "blue";
+        cxt.stroke();
+        cxt.closePath();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="display: block; margin: 50px auto; border: aqua 1px solid"
+    ></canvas>
+    <script>
+      var balls = [];
+      window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.height = 800;
+        canvas.width = 1200;
+        var ctx = canvas.getContext("2d");
+        for (var i = 0; i < 100; i++) {
+          var R = Math.floor(Math.random() * 255);
+          var G = Math.floor(Math.random() * 255);
+          var B = Math.floor(Math.random() * 255);
+          var r = Math.random() * 30 + 20;
+        //设置小球的物理运动
+          aBll = {
+            color: "rgb(" + R + "," + G + "," + B + ")",
+            r: r,
+            x: Math.random() * (canvas.width - 2 * r) + r,
+            y: Math.random() * (canvas.height - 2 * r) + r,
+            vx:
+              (Math.random() * 5 + 5) *
+              Math.pow(-1, Math.floor(Math.random() * 100)),
+            vy:
+              (Math.random() * 5 + 5) *
+              Math.pow(-1, Math.floor(Math.random() * 100)),
+          };
+          balls[i] = aBll;
+        }
+        setInterval(function () {
+          draw(ctx);
+          update(canvas.width, canvas.height);
+        },30);
+      };
+
+      function draw(context) {
+        var canvas = context.canvas;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < balls.length; i++) {
+          context.globalCompositeOperation = "lighter";
+          // context.globalAlpha="source-over";默认值，在这种情况下默认绘制的图形都不具有透明度，即后绘制的图形会盖住之前绘制的图形-->有十一个值
+          context.fillStyle = balls[i].color;
+          context.beginPath();
+          context.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2 * Math.PI);
+          context.closePath();
+          context.fill();
+        }
+      }
+
+      function update(canvasWidth, canvasHeight) {
+        for (var i = 0; i < balls.length; i++) {
+          balls[i].x += balls[i].vx;
+          balls[i].y += balls[i].vy;
+
+          if (balls[i].x - balls[i].r <= 0) {
+            balls[i].vx = -balls[i].vx;
+            balls[i].x = balls[i].r;
+          }
+
+          if (balls[i].x + balls[i].r >= canvasWidth) {
+            balls[i].vx = -balls[i].vx;
+            balls[i].x = canvasWidth - balls[i].r;
+          }
+
+          if (balls[i].y - balls[i].r <= 0) {
+            balls[i].vy = -balls[i].vy;
+            balls[i].y = balls[i].r;
+          }
+
+          if (balls[i].y + balls[i].r >= canvasHeight) {
+            balls[i].vy = -balls[i].vy;
+            balls[i].y = canvasHeight - balls[i].r;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

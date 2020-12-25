@@ -5,8 +5,11 @@ var MARGIN_LEFT = 30;
 var MARGIN_TOP = 60;
 
 const endTime = new Date("2/11/2021");
+
+//倒计时一个小时
 // let endTime = new Date();
-// endTime.setTime(endTime.getTime()+3600*1000)
+// endTime.setTime(endTime.getTime() + 3600 * 1000)
+
 var curShowTimeSeconds = 0;
 
 var balls = [];
@@ -45,8 +48,11 @@ window.onload = function () {
 //计算指定时间到现在时间的数据
 function getCurrentShowTimeSeconds() {
   var curTime = new Date();
+  //倒计时
   // var ret = endTime.getTime() - curTime.getTime();
-  //ret = Math.round(ret / 1000);
+  // ret = Math.round(ret / 1000);
+  
+  //显示当前时间并⏲
   var ret=curTime.getHours()*3600+curTime.getMinutes()*60+curTime.getSeconds()
   
 

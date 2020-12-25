@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" style="border: aqua 1px solid; margin: 50px auto; display: block">
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1200;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+        
+
+        var skyStry = context.createRadialGradient(
+          canvas.width / 2,
+          canvas.height / 1.25,
+          200,
+          canvas.width / 2,
+          canvas.height / 1.25,
+          canvas.height
+        );
+        //渐变过渡的颜色
+        skyStry.addColorStop(0, "#035");
+        skyStry.addColorStop(1, "black");
+
+        context.fillStyle = skyStry;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        var str = [];
+        for (var i = 0; i < 100; i++) {
+          var r = Math.random() * 10 + 10;
+          var x = Math.max(Math.random() * canvas.width, r);
+          x = Math.min(x, canvas.width - r);
+          var y = Math.max(Math.random() * canvas.height * 0.65, r);
+          y = Math.min(y, canvas.height - r);
+          var a = Math.random() * 360;
+          str.push([x, y, r]);
+          var flag = true;
+          for (var j = 0; j < str.length; j++) {
+            var jux = Math.abs(x - str[j][0]);
+            var juy = Math.abs(y - str[j][1]);
+            var ju = Math.sqrt(Math.pow(jux, 2) + Math.pow(juy, 2));
+
+            if (ju < r + str[j][2] && ju != 0) {
+              flag = false;
+            }
+          }
+          if (flag) {
+            drawStar(context, x, y, r, a);
+            fillMoon(context, 1, 900, 200, 100, 30)
+            drawLand(context)
+          }
+        }
+      };
+
+      function drawLand(cxt) {
+        cxt.save()
+        cxt.beginPath()
+        cxt.moveTo(0, 600)
+        //三次贝塞尔曲线
+        cxt.bezierCurveTo(540, 400, 660, 800, 1200, 600)
+        cxt.lineTo(1200, 800)
+        cxt.lineTo(0, 800)
+        cxt.closePath()
+        var landStyle = cxt.createLinearGradient(0, 800, 0, 0)
+        landStyle.addColorStop(0, "#030")
+        landStyle.addColorStop(1, "#580")
+        cxt.fillStyle = landStyle
+        cxt.fill()
+        cxt.restore()
+
+        cxt.font="40px bold Arial"
+        
+        cxt.fillStyle = "white"
+        cxt.strokeStyle = "#035"
+        cxt.lineWidth = 1;
+        cxt.fillText("欢迎大家学习《Canvas绘图接口详解》！", 40, 700)
+        cxt.strokeText("欢迎大家学习《Canvas绘图接口详解》！", 40, 700)
+
+
+        
+      }
+
+      function drawStar(cxt, x, y, r, a) {
+        cxt.save();
+        // //代替x,y轴的偏移量
+        cxt.translate(x, y);
+        // //代替a的旋转角度
+        cxt.rotate((a / 180) * Math.PI);
+        // //代替r,但是要牺牲描边，
+        cxt.scale(r, r)
+
+        // cxt.transform(r,0,0,r,x,y);//综合translate(),rotate(),scale()的属性
+        //cxt.setTransform(r,0,0,r,x,y);//忽略之前的transfrom()变化
+        ////////////////////////////
+        //  a   c   e
+        //  b   d   f
+        //  0   0   0
+        ///////////////////////////
+        //a,d水平,垂直缩放
+        //b,c水平，垂直倾斜
+        //e,f水平，垂直位移
+        //////////////////////////
+        starPath(cxt);
+
+        cxt.fillStyle = "#fb3";
+        // cxt.strokeStyle = "#fff";
+        // cxt.lineWidth = 1;
+        // cxt.lineJoin = "round";
+        cxt.fill()
+        // cxt.stroke()
+        cxt.restore();
+      }
+
+      function starPath(cxt) {
+        cxt.beginPath();
+        for (var i = 0; i < 5; i++) {
+          cxt.lineTo(
+            Math.cos(((18 + i * 72) / 180) * Math.PI),
+            -Math.sin(((18 + i * 72) / 180) * Math.PI)
+          );
+          cxt.lineTo(
+            Math.cos(((54 + i * 72) / 180) * Math.PI) * 0.5,
+            -Math.sin(((54 + i * 72) / 180) * Math.PI) * 0.5
+          );
+        }
+        cxt.closePath();
+      }
+
+      function fillMoon(cxt, d, x, y, R, rot, /*optional*/ fillColor) {
+        cxt.save()
+        cxt.translate(x, y)
+        cxt.rotate(rot * Math.PI / 180)
+        cxt.scale(R, R)
+        pathMoon(cxt, d)
+        cxt.fillStyle = fillColor || "#fb5"
+        cxt.fill()
+        cxt.restore()
+      }
+
+      function pathMoon(cxt, d) {
+        cxt.beginPath()
+        cxt.arc(0, 0, 1, 0.5 * Math.PI, 1.5 * Math.PI, true)
+        cxt.moveTo(0, -1)
+        cxt.arcTo(d, 0, 0, 1, dis(0, -1, d, 0) / d)
+        cxt.closePath()
+        //context.arc(400, 400, 300, 0.5 * Math.PI, 1.5 * Math.PI, true);
+        // context.moveTo(400, 100);
+        // context.arcTo(1200, 400, 400, 700, (400 - 100) * dis(400, 100, 1200, 400) / (1200 - 400));
+        // context.stroke();
+      }
+
+      function dis(x1, y1, x2, y2) {
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+      }
+    </script>
+</body>
+
+</html>

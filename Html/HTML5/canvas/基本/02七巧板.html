@@ -86,10 +86,16 @@
           cxt.moveTo(piece.p[0].x, piece.p[0].y);
           for (var i = 1; i < piece.p.length; i++) {
             cxt.lineTo(piece.p[i].x, piece.p[i].y);
+
+            context.shadowColor="gray"
+      context.shadowOffsetX=10;
+      context.shadowOffsetY=10;
+      context.shadowBlur=20
           }
           cxt.closePath();
           cxt.strokeSttyle="black"
           cxt.fillStyle = piece.color;
+          
           cxt.fill();
           cxt.stroke()
         }
