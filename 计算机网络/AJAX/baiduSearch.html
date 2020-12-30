@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top-e3b63a0b1b.png"></img>
+        <input type="text" id="search">
+    </div>
+    <ul id="list"></ul>
+    <script>
+        var search = document.querySelector('#search')
+        var list = document.querySelector('#list')
+        search.onkeyup = function () {
+            var txt = this.value
+            var script = document.createElement('script')
+            script.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${txt}&cb=fn`
+            document.body.appendChild(script)
+            //过河拆桥
+            document.body.removeChild(script)
+        }
+        //鼠标点击选中
+        list.onmousedown = function (e) {
+            var target = e.target
+            if (target.tagName === 'LI') {
+                search.value = target.innerHTML
+                list.innerHTML = ''
+            }
+        }
+        //输入框焦点移出
+        search.onblur=function(){
+            list.innerHTML=''
+        }
+        function fn(resp) {
+            console.log(resp)
+            var html = ''
+            resp.s.forEach(word => {
+                html += `<li>${word}</li>`
+            });
+            list.innerHTML = html
+        }
+
+    </script>
+</body>
+
+</html>

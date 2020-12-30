@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 先设置两个在不同服务器下运行的HTML文件 -->
+    <iframe src="http://127.0.0.1:1002/Message/B.html" style="display: none;" id="iframe" frameborder="0"></iframe>
+    <script>
+        iframe.onload = function () {
+            // console.log(iframe.contentWindow)
+            iframe.contentWindow.postMessage("hi", "http://127.0.0.1:1002/Message/B.html")
+        }
+
+        window.onmessage = function (ev) {
+            console.log(ev.data)
+        }
+    </script>
+</body>
+
+</html>

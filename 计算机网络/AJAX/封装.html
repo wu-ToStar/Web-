@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./util.js"></script>
+</head>
+
+<body>
+    <button onclick="sendMsg()">发送请求</button>
+    <script>
+        function sendMsg() {
+            // get('./data.php',{id:3,title:"hi"},function(res){
+            //     console.log(res)
+            // },true)
+
+            // util.post('./data.php', { name: "zhangsan", age: 18 }, function (res) {
+            //     console.log(res)
+            // }, true)
+
+            // util.ajax({
+            //     method: 'post',
+            //     url: './data.php',
+            //     query: { name: 'wu', age: 20 },
+            //     callback: function (res) {
+            //         console.log(res)
+            //     },
+            //     isJson: true
+            // })
+
+
+            // util.fetch('./data.php',{id:3,title:"Promise"},true).then(function(res){
+            //     console.log(res)
+            // })
+
+            util.ajax2({
+                method: 'get',
+                url: './data.php',
+                query: { id: 10086, title: "hi" },
+                isJson: true
+            }).then(function(res){
+                console.log(res)
+            })
+        }
+    </script>
+</body>
+
+</html>

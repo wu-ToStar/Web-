@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(resp){
+            console.log(resp)
+        }
+    </script>
+    <script src="http://localhost/AJAX/server.txt"></script>
+    <!-- 无论文件的后缀名是什么 ，请求回来的代码都会作为js代码来执行-->
+    <script src="http://localhost/AJAX/server.php?data=fn"></script>
+    <!-- 
+        jsop接口后端返回的是一个函数的调用
+        jsonp只能处理get类型的跨域
+    -->
+</body>
+</html>
