@@ -8,33 +8,22 @@
     "include": [
         "./src/**/*"
     ],
-    // "exclude": [
-    //     "./src/hello/**/*"
-    // ],
     "compilerOptions": {
         //指定版本
-        "target":"es2015",
-
+        "target": "es2015",
         //指定模块化标准
-        "module":"es2015",
-
-        //用来指定编译后的文件所在的目录
+        "module": "es2015",
+        // "module": "system",
         "outDir": "./dist",
-
         //是否对js文件进行编译,默认false
         "allowJs": true,
-
         //是否对js文件进行语法检查，默认是false
         "checkJs": true,
-        
         //移除注释，默认false
         "removeComments": true,
-
         //当有错误时不生成文件
         "noEmitOnError": true,
-
         //严格模式全部打开，建议开
         "strict": true,
     },
-    
-}  
+}

@@ -1,0 +1,13 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./node_modules/**/*"
+    ],
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "es2015",
+        "strict": true,
+    },
+}
