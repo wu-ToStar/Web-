@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+    <script>
+        var arr=[1,2,3,4,5]
+        var obj={0:1,1:2,2:3,3:4,4:5,length:5}
+        //(值，索引)
+        arr.forEach(function(value,index  ,arr){
+            console.log(index,value,arr)
+        })
+
+        //利用jQuery的each静态方法遍历数组
+        //(索引，值)
+        $.each(arr,function(index,value  ){
+            console.log(index,value)
+        })
+        //可以遍历伪数组
+        $.each(obj,function(index,value  ){
+            console.log(index,value)
+        })
+    </script>
+</head>
+
+<body>
+    <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7" alt="">
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+    <script>
+
+        //接受一个函数
+        $(function () {
+            alert('hi')
+        })
+
+        //接受一个字符串选择器，返回一个jQuery对象
+        var $box1=$("box1")
+        console.log($box1)
+
+        //接受一个字符串代码片段，返回一个jQuery对象
+        var $p=$("<p>我是段落</p>")
+        console.log($p)
+        $box1.append($p)
+        
+        //接受一个DOM元素，返回一个jQuery对象
+        var span=document.getElementsByTagName('span')[0]
+        var $span=$('span')
+        console.log($span)
+
+        $("")
+    </script>
+</head>
+
+<body>
+    <div id="box1">我是段落</div>
+    <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7" alt="">
+    <span>我是一个span</span>
+</body>
+
+</html>

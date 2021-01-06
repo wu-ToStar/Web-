@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+    <script>
+        $.holdReady(true);//暂停ready执行
+        $(document).ready(function () {
+            alert('ready')
+        })
+    </script>
+</head>
+
+<body>
+    <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7"
+        alt="" />
+
+    <button>回复ready事件</button>
+    <script>
+        var btn = document.getElementsByTagName("button")[0]
+        btn.onclick = function () {
+            $.holdReady(false);
+            alert('btn')
+            console.log("解除暂停状态");
+
+        }
+    </script>
+</body>
+
+</html>

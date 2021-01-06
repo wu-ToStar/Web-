@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+    <script>
+        var arr = [1, 2, 3, 4, 5]
+        var obj = { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, length: 5 }
+        //(值，索引)
+        arr.forEach(function (value, index, arr) {
+            console.log(index, value, arr)
+        })
+
+        var res = $.each(arr, function (index, value) {
+            console.log(index, value)
+            return index+value
+        }) 
+        var res2 = $.map(arr, function (index, value) {
+            console.log(index, value)
+            return index+value
+        })
+
+        console.log(res);
+        console.log(res2);
+        
+    /**
+         *  jquery中的each静态方法和map静态方法的区别
+         *  each静态方法的默认返回值就是，遍历谁就返回谁，不支持改变数组
+         *  map静态方法的返回值就是一个空数组，支持改变数组
+         */
+    </script>
+</head>
+
+<body>
+    <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7"
+        alt="" />
+</body>
+
+</html>

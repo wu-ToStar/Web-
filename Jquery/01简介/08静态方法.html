@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+    <script>
+        //静态方法通过类名调用
+        function AClass() {
+            alert('staticMethod')
+        }
+
+        AClass.staticMethod = function () {
+
+        }
+        AClass.staticMethod()
+
+        //实例方法通过类的实例调用
+        AClass.prototype.instanceMethod = function () {
+            alert('instanceMethod')
+        }
+        var a = new AClass()
+        a.instanceMethod()
+    </script>
+</head>
+
+<body>
+    <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7" alt="">
+</body>
+
+</html>

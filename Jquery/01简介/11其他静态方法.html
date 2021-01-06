@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.js"></script>
+  <script>
+    $(function () {
+
+    });
+
+    var str = "  hi    "
+    console.log(str);
+    //去除两端的字符串
+    var res = $.trim(str)
+    console.log(res);
+
+
+    var arr = [1, 2, 3, 4, 5]
+    var obj = { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, length: 5 }
+
+    //判断传入的值是否是window对象
+    var obj={}
+    var w=window
+    var win=$.isWindow(w)
+    var win2=$.isWindow(obj)
+    console.log(win);
+    console.log(win2);
+    
+
+    //判断是否是伪数组
+    var res = $.isArray(arr)
+    var res2 = $.isArray(obj)
+    console.log(res);
+    console.log(res2);
+
+    //jquery框架是一个函数（IIFE,匿名函数自调用）
+    var fn=$.isFunction($)
+    console.log(fn);
+    
+  </script>
+</head>
+
+<body>
+  <img src="https://tse4-mm.cn.bing.net/th/id/OIP.tzqfllqH6rdPwsSaCsn8fwAAAA?w=168&h=180&c=7&o=5&dpr=1.25&pid=1.7"
+    alt="" />
+</body>
+
+</html>
