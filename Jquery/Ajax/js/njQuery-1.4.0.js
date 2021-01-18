@@ -224,6 +224,92 @@
             }else{
                 return dom.currentStyle[styleName];
             }
+        },
+        addEvent: function(dom, name, callBack) {
+            if(dom.addEventListener){
+                dom.addEventListener(name, callBack);
+            }else{
+                dom.attachEvent("on"+name, callBack);
+            }
+        }
+    });
+    // 网络请求相关方法
+    njQuery.extend({
+        obj2str: function(data) {
+            data = data || {};
+            data.t = new Date().getTime();
+            var res = [];
+            for(var key in data){
+                res.push(encodeURIComponent(key)+"="+encodeURIComponent(data[key]));
+            }
+            return res.join("&");
+        },
+        ajax: function(option) {
+           // 0.将对象转换为字符串
+           var str = njQuery.obj2str(option.data);
+           // 1.创建一个异步对象
+           var xmlhttp, timer;
+           if (window.XMLHttpRequest){
+               xmlhttp=new XMLHttpRequest();
+           }
+           else{
+               xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+           }
+           // 2.设置请求方式和请求地址
+           if(option.type.toLowerCase() === "get"){
+               xmlhttp.open(option.type, option.url+"?"+str, true);
+               // 3.发送请求
+               xmlhttp.send();
+           }
+           else{
+               xmlhttp.open(option.type, option.url,true);
+               // 注意点: 以下代码必须放到open和send之间
+               xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+               xmlhttp.send(str);
+           }
+
+           // 4.监听状态的变化
+           xmlhttp.onreadystatechange = function (ev2) {
+               if(xmlhttp.readyState === 4){
+                   clearInterval(timer);
+                   // 判断是否请求成功
+                   if(xmlhttp.status >= 200 && xmlhttp.status < 300 ||
+                       xmlhttp.status === 304){
+                       // 5.处理返回的结果
+                       option.success(xmlhttp);
+                   }else{
+                       option.error(xmlhttp);
+                   }
+               }
+           }
+           // 判断外界是否传入了超时时间
+           if(option.timeout){
+               timer = setInterval(function () {
+                   console.log("中断请求");
+                   xmlhttp.abort();
+                   clearInterval(timer);
+               }, option.timeout);
+           }
+       },
+        get: function (url,timeout,data,success,error) {
+            njQuery.ajax({
+                type:"GET",
+                url:url,
+                timeout:timeout,
+                data:data,
+                success:success,
+                error:error
+            });
+        },
+        post: function (url,timeout,data,success,error) {
+            njQuery.ajax({
+                type:"POST",
+                url:url,
+                timeout:timeout,
+                data:data,
+                success:success,
+                error:error
+            });
         }
     });
     // DOM操作相关方法
@@ -440,6 +526,33 @@
             });
             // 3.返回所有添加的元素
             return $(res);
+        },
+        clone: function (deep) {
+            var res = [];
+            // 判断是否是深复制
+            if(deep){
+                // 深复制
+                this.each(function (key, ele) {
+                    var temp = ele.cloneNode(true);
+                    // 遍历元素中的eventsCache对象
+                    njQuery.each(ele.eventsCache, function (name, array) {
+                        // 遍历事件对应的数组
+                        njQuery.each(array, function (index, method) {
+                            // 给复制的元素添加事件
+                            $(temp).on(name, method);
+                        });
+                    });
+                    res.push(temp);
+                });
+                return $(res);
+            }else{
+                // 浅复制
+                this.each(function (key, ele) {
+                    var temp = ele.cloneNode(true);
+                    res.push(temp);
+                });
+                return $(res);
+            }
         }
     });
     // 筛选相关方法
@@ -623,7 +736,7 @@
                     $.each(names, function (k, value) {
                         // 4.判断指定元素中是否包含指定的类名
                         if($(ele).hasClass(value)){
-                            ele.className = (" "+ele.className+" ").replace(" "+value+" ", " ");
+                            ele.className = (" "+ele.className+" ").replace(" "+value+" ", "");
                         }
                     });
                 });
@@ -647,6 +760,60 @@
                         }else{
                             // 添加
                             $(ele).addClass(value);
+                        }
+                    });
+                });
+            }
+            return this;
+        }
+    });
+    // 事件操作相关的方法
+    njQuery.prototype.extend({
+        on: function (name, callBack) {
+            // 1.遍历取出所有元素
+            this.each(function (key, ele) {
+                // 2.判断当前元素中是否有保存所有事件的对象
+                if(!ele.eventsCache){
+                    ele.eventsCache = {};
+                }
+                // 3.判断对象中有没有对应类型的数组
+                if(!ele.eventsCache[name]){
+                    ele.eventsCache[name] = [];
+                    // 4.将回调函数添加到数据中
+                    ele.eventsCache[name].push(callBack);
+                    // 5.添加对应类型的事件
+                    njQuery.addEvent(ele, name, function () {
+                        njQuery.each(ele.eventsCache[name], function (k, method) {
+                            method.call(ele);
+                        });
+                    });
+                }else{
+                    // 6.将回调函数添加到数据中
+                    ele.eventsCache[name].push(callBack);
+                }
+            });
+            return this;
+        },
+        off: function (name, callBack) {
+            // 1.判断是否没有传入参数
+            if(arguments.length === 0){
+                this.each(function (key, ele) {
+                    ele.eventsCache = {};
+                });
+            }
+            // 2.判断是否传入了一个参数
+            else if(arguments.length === 1){
+                this.each(function (key, ele) {
+                    ele.eventsCache[name] = [];
+                });
+            }
+            // 3.判断是否传入了两个参数
+            else if(arguments.length === 2){
+                this.each(function (key, ele) {
+                    njQuery.each(ele.eventsCache[name], function (index, method) {
+                        // 判断当前遍历到的方法和传入的方法是否相同
+                        if(method === callBack){
+                            ele.eventsCache[name].splice(index,  1);
                         }
                     });
                 });
