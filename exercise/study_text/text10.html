@@ -45,189 +45,193 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="headimage mb-5">
-      <img src="./images/bootstrap-solid.svg" alt="" class="mb-3">
-      <h1>Checkout form</h1>
-      <p class="lead" style="width: 80%;margin: 0 auto;">Below is an example form built entirely with Bootstrap’s form
-        controls. Each required form group has a validation state that can be triggered by attempting to submit the form
-        without completing it.</p>
+      <div class="headimage mb-5 container">
+        <img src="./images/bootstrap-solid.svg" alt="" class="mb-3">
+        <h1>Checkout form</h1>
+        <p class="lead" style="width: 80%;margin: 0 auto;">Below is an example form built entirely with Bootstrap’s form
+          controls. Each required form group has a validation state that can be triggered by attempting to submit the
+          form
+          without completing it.</p>
     </div>
-    <div class="row">
-      <div class="article col-7 mr-5">
-        <h2>Billing address</h2>
-        Your cart
-        <form class="needs-validation" novalidate>
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationCustom01">First name</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="validationCustom02">Last name</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-            <div class="col-md-12 mb-3">
-              <label for="validationCustomUsername">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
-                  aria-describedby="inputGroupPrepend" required>
+    <div class="container">
+      <div class="row">
+        <div class="article col-md-7 mr-5">
+          <h2>Billing address</h2>
+          Your cart
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom01">First name</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
                 <div class="invalid-feedback">
-                  Your username is required.
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02">Last name</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="validationCustomUsername">Username</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
+                    aria-describedby="inputGroupPrepend" required>
+                  <div class="invalid-feedback">
+                    Your username is required.
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="colFormLabel">Email</label>
-            <input type="email" class="form-control" id="colFormLabel" placeholder="you@example">
-          </div>
-          <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
-            <div class="invalid-feedback">
-              Please enter your shipping address.
+            <div class="form-group">
+              <label for="colFormLabel">Email</label>
+              <input type="email" class="form-control" id="colFormLabel" placeholder="you@example">
             </div>
-          </div>
-          <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment or studio">
-          </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment or studio">
+            </div>
 
-          <div class="form-row">
-            <div class="col-md-6">
-              <label for="Country">Country</label>
-              <select class="custom-select my-1 mr-sm-2" id="Country" required>
-                <option value>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="Country">Country</label>
+                <select class="custom-select my-1 mr-sm-2" id="Country" required>
+                  <option value>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="State">State</label>
+                <select class="custom-select my-1 mr-sm-2" id="State" required>
+                  <option value>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="Zip">Zip</label>
+                <input type="text" class="form-control" id="Zip" placeholder="Zip" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <label for="State">State</label>
-              <select class="custom-select my-1 mr-sm-2" id="State" required>
-                <option value>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-            <div class="col-md-3">
-              <label for="Zip">Zip</label>
-              <input type="text" class="form-control" id="Zip" placeholder="Zip" required>
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
-          </div>
 
-          <p>&nbsp;</p>
-          <hr>
-          <br>
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label" for="customCheck1">Shipping address is the same as my billing
-              address</label>
-          </div>
-          <br>
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck2">
-            <label class="custom-control-label" for="customCheck2">Save this information for next time</label>
-          </div>
-          <hr>
-          <p>&nbsp;</p>
-          <h3>Payment</h3>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio1">Credit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio2">Debit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio3">PayPal</label>
-          </div>
+            <p>&nbsp;</p>
+            <hr>
+            <br>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Shipping address is the same as my billing
+                address</label>
+            </div>
+            <br>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">Save this information for next time</label>
+            </div>
+            <hr>
+            <p>&nbsp;</p>
+            <h3>Payment</h3>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio1">Credit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio2">Debit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio3">PayPal</label>
+            </div>
 
-          <div class="form-row">
-            <div class="form-group col-6">
-              <label for="cc-name">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" aria-describedby="emailHelp" placeholder required>
-              <small id="emailHelp" class="form-text text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Please provide a valid zip.
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="cc-name">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" aria-describedby="emailHelp" placeholder required>
+                <small id="emailHelp" class="form-text text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+              <div class="form-group col-6">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder required>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
               </div>
             </div>
-            <div class="form-group col-6">
-              <label for="cc-number">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder required>
-              <div class="invalid-feedback">
-                Please provide a valid zip.
+            <div class="form-row">
+              <div class="form-group col-3">
+                <label for="cc-expiration">expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder required>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <label for="cc-cvv">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder required>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-3">
-              <label for="cc-expiration">expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder required>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
+            <div class="justify-content-md-center row">
+              <button class="btn btn-primary col-10 " type="submit">Continue to checkoout</button>
             </div>
-            <div class="form-group col-3">
-              <label for="cc-cvv">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder required>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          </div>
-          <div class="justify-content-md-center row">
-            <button class="btn btn-primary col-10 " type="submit">Continue to checkoout</button>
-          </div>
 
-        </form>
-      </div>
-      <div class="aside col-4">
-        <h2>Your cart <span class="badge badge-dark">4</span></h2>
-        <div class="card" style="width: 18rem;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio <span>$12</span>
-              <p>Brief description.</p>
-            </li>
-            <li class="list-group-item">Cras justo odio <span>$8</span>
-              <p>Brief description.</p>
-            </li>
-            <li class="list-group-item">Cras justo odio <span>$5</span>
-              <p>Brief description.</p>
-            </li>
-            <li class="list-group-item green">Cras justo odio <span>$5</span>
-              <p>Brief description.</p>
-            </li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          </form>
+        </div>
+        <div class="aside col-md-4">
+          <h2>Your cart <span class="badge badge-dark">4</span></h2>
+          <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio <span>$12</span>
+                <p>Brief description.</p>
+              </li>
+              <li class="list-group-item">Cras justo odio <span>$8</span>
+                <p>Brief description.</p>
+              </li>
+              <li class="list-group-item">Cras justo odio <span>$5</span>
+                <p>Brief description.</p>
+              </li>
+              <li class="list-group-item green">Cras justo odio <span>$5</span>
+                <p>Brief description.</p>
+              </li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+
   <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
