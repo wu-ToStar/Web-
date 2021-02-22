@@ -8,9 +8,9 @@ console.log(sum(123, 456));
 
 console.log(hi);
 
-const obj = { name: "孙悟空",age:33 };
+const obj = { name: "孙悟空", age: 33 };
 console.log(obj);
-obj.age = 18
+obj.age = 18;
 console.log(obj);
 
 console.log("hi");
@@ -23,4 +23,4 @@ console.log("hi");
 // promise.then((resolve) => {
 //     console.log(resolve)
 // })
-console.log(Promise)
+console.log(Promise);
